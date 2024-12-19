@@ -2,7 +2,7 @@
 
 I am a new PI at [Fudan University](https://www.fudan.edu.cn/en/). My research involves general learning approaches and their applications to biological and medical studies as well as drug screens. 
 
-```We are looking for highly motivated students and postdocs to work together. ```
+**We are looking for highly motivated students and postdocs to work together.**
 
 Previously, I was a Postdoc working at [Altschuler and Wu lab](https://www.altschulerwulab.org/),  University of California, San Francisco. I obtained my PhD from [Tsinghua University](https://www.tsinghua.edu.cn/en/) in 2019. 
 ```markdown
