@@ -82,7 +82,7 @@ Reviewer for the following journals:
 - Briefings in Bioinformatics
 - IEEE Journal of Selected Topics in Signal Processing
 
-_last update: Jul 31st, 2024_
+_last update: Dec 23st, 2024_
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102911962-1"></script>
