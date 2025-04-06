@@ -25,10 +25,13 @@ Contact: fbao with the suffix @fudan.edu.cn
 
 ## Recent works
 
-### In progress
-- Integration of high-content imaging-based drug screens.
-- Hypioxia multiomics.
-- Spatial multiomics.
+### **Transitive prediction of small molecule function through alignment of high-content screening resources**
+
+<img style="float: left;" src = "/image/clipn.png" width ="200" />
+
+High-content, image-based drug screening (HCS) is widely used in pharmaceutical research, but a major bottleneck is that each institute develops its own pipeline (cell lines, staining protocols, drug categories). Because of this, studies remain isolated. In this work, we introduced the concept of integrated HCS drug screens, enabling different studies—even those performed over 20 years ago—to jointly inform characterization of unknown compounds. We achieved this by developing a new approach called **CLIP<sup>n</sup>**, a contrastive learning framework that aligns heterogeneous datasets into a shared latent space to facilitate cross-dataset predictions. This study was accpeted by *Nature Biotechnology* and currently in press.
+
+[\[Project Page\]](https://github.com/AltschulerWu-Lab/CLIPn)
 
 ### **Enhancing the spatial resolution of diverse spatial omics platforms by joint generative modeling of space, image and omics**
 
