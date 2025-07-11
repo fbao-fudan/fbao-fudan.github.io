@@ -30,9 +30,9 @@ Contact: fbao with the suffix @fudan.edu.cn
 <img style="float: left;" src = "/image/clipn.png" width ="500" />
 <!-- ![image](/image/clipn.png) -->
 
-High-content, image-based drug screening (HCS) is widely used in pharmaceutical research, but a major bottleneck is that each institute develops its own pipeline (cell lines, staining protocols, drug categories). Because of this, studies remain isolated. In this work, we introduced the concept of integrated HCS drug screens, enabling different studies—even those performed over 20 years ago—to jointly inform characterization of unknown compounds. We achieved this by developing a new approach called **CLIP<sup>n</sup>**, a contrastive learning framework that aligns heterogeneous datasets into a shared latent space to facilitate cross-dataset predictions. This study was accpeted by *Nature Biotechnology* and currently in press.
+High-content, image-based drug screening (HCS) is widely used in pharmaceutical research, but a major bottleneck is that each institute develops its own pipeline (cell lines, staining protocols, drug categories). Because of this, studies remain isolated. In this work, we introduced the concept of integrated HCS drug screens, enabling different studies—even those performed over 20 years ago—to jointly inform characterization of unknown compounds. We achieved this by developing a new approach called **CLIP<sup>n</sup>**, a contrastive learning framework that aligns heterogeneous datasets into a shared latent space to facilitate cross-dataset predictions. This study was published in *Nature Biotechnology*.
 
-[\[Project Page\]](https://github.com/AltschulerWu-Lab/CLIPn)
+[\[Project Page\]](https://github.com/AltschulerWu-Lab/CLIPn)[\[Publication\]](https://doi.org/10.1038/s41587-025-02729-2)
 
 ### **Enhancing the spatial resolution of diverse spatial omics platforms by joint generative modeling of space, image and omics**
 
@@ -86,7 +86,7 @@ Reviewer for the following journals:
 - Briefings in Bioinformatics
 - IEEE Journal of Selected Topics in Signal Processing
 
-_last update: Dec 23st, 2024_
+_last update: Jul 11th, 2025_
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102911962-1"></script>
