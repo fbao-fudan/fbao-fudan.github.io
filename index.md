@@ -1,4 +1,4 @@
-# Feng Bao 鲍峰
+# Feng BAO 鲍峰
 
 I am a new PI at [Fudan University](https://www.fudan.edu.cn/en/). My research involves general learning approaches and their applications to biological and medical studies as well as drug screens. 
 
@@ -27,7 +27,7 @@ Contact: fbao with the suffix @fudan.edu.cn
 
 ### **Transitive prediction of small molecule function through alignment of high-content screening resources**
 
-<img style="float: left;" src = "/image/cover_clipn.jpg" width ="200" />
+<img style="float: left; margin-right: 20px;" src="/image/cover_clipn.jpg" width="200" />
 <!-- ![image](/image/clipn.png) -->
 
 
