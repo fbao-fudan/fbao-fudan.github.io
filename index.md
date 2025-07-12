@@ -1,6 +1,6 @@
 # Feng BAO 鲍峰
 
-I am a new PI at [Fudan University](https://www.fudan.edu.cn/en/). My research involves general learning approaches and their applications to biological and medical studies as well as drug screens. 
+I am a PI at [Fudan University](https://www.fudan.edu.cn/en/). My research involves general learning approaches and their applications to biological and medical studies as well as drug screens. 
 
 **We are looking for highly motivated students and postdocs to work together.**
 
