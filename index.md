@@ -13,11 +13,11 @@ Contact: fbao with the suffix @fudan.edu.cn
 
 - **Recent focus on statistical learning** 
 1. Architectures to disentangle information within multi-modal/-omics inputs 
-2. Variational information theoretic methods
+2. Integration analysis on >2 modalities
 3. Constrastive learning for multimodal data 
 
 - **Recent focus on biological questions**
-1. Quantify interactions across multiple single-cell modalities
+1. Quantify interactions across multiple omics types
 2. Improve throughput of spatially resolved transcriptomics statistically
 3. Integrate high-content phenotypic drug profiles
 
