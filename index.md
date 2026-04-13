@@ -1,94 +1,108 @@
 # Feng BAO 鲍峰
 
-I am a PI at [Fudan University](https://www.fudan.edu.cn/en/). My research involves general learning approaches and their applications to biological and medical studies as well as drug screens. 
+I am a Principal Investigator at the [College for Future Information Technology](https://www.fudan.edu.cn/en/), [Fudan University](https://www.fudan.edu.cn/en/), Shanghai. My research develops statistical learning and AI methods to answer fundamental biological questions and advance medicine — spanning self-supervised representation learning, multi-modal information fusion, causal inference in complex biological systems, and deep generative models for spatial omics.
 
-**We are looking for highly motivated students and postdocs to work together.**
+**We are looking for highly motivated PhD students and postdocs** with backgrounds in machine learning, statistics, bioinformatics, or biology.
 
-Previously, I was a Postdoc working at [Altschuler and Wu lab](https://www.altschulerwulab.org/),  University of California, San Francisco; a visiting scholar at [Dana-Farber Cancer Institute](https://www.dana-farber.org/), Harvard Medical School. I obtained my PhD from [Tsinghua University](https://www.tsinghua.edu.cn/en/) in 2019. 
-```markdown
-Contact: fbao with the suffix @fudan.edu.cn
+Previously, I was a Postdoc (2019–2024) at [Altschuler and Wu Lab](https://www.altschulerwulab.org/), University of California, San Francisco, and a visiting scholar at [Dana-Farber Cancer Institute](https://www.dana-farber.org/), Harvard Medical School (2018–2019). I obtained my PhD from [Tsinghua University](https://www.tsinghua.edu.cn/en/) (2019), advised by Academician Qionghai Dai, and my B.Eng. from Xidian University (2014).
+
+**Awards:** 2025 Xiaomi Young Scholar · 2023 National High-level Overseas Young Talent
+
+```
+Contact: fbao@fudan.edu.cn
 ```
 
-## Research interests
+---
 
-- **Recent focus on statistical learning** 
-1. Architectures to disentangle information within multi-modal/-omics inputs 
-2. Integration analysis on >2 modalities
-3. Constrastive learning for multimodal data 
+## Research Interests
 
-- **Recent focus on biological questions**
-1. Quantify interactions across multiple omics types
-2. Improve throughput of spatially resolved transcriptomics statistically
-3. Integrate high-content phenotypic drug profiles
+- **AI Methods**
+  1. Self-supervised representation learning for biological data
+  2. Multi-modal information fusion (transcriptomics, proteomics, spatial data, imaging)
+  3. Causal inference in gene regulatory networks and drug perturbation experiments
+
+- **Biomedical Applications**
+  1. Quantify interactions across multiple omics types
+  2. Improve throughput of spatially resolved transcriptomics statistically
+  3. Causal drug target discovery and transferable prediction of small-molecule function
 
 [Full publication list on Google Scholar](https://scholar.google.com/citations?user=I0mcA3MAAAAJ&hl=en)
 
-## Recent works
+---
+
+## Selected Publications
+
+### **Whole-body molecular and cellular mapping of the laboratory mouse**
+
+A comprehensive whole-body atlas integrating molecular and cellular data across tissues in the laboratory mouse. Published in [*Cell*](https://doi.org/10.1016/j.cell.2026.03.006), 2026.
+
+[\[Publication\]](https://doi.org/10.1016/j.cell.2026.03.006)
+> Clevenger MH, Cipurko D, Patil A, Li B, Takahama M, Mei L, Plaster M, Kawamoto G, **Bao F**, Chevrier N, et al. Cell. 2026. https://doi.org/10.1016/j.cell.2026.03.006
+
+---
 
 ### **Transitive prediction of small molecule function through alignment of high-content screening resources**
 
-<img style="float: left; margin-right: 20px;" src="/image/cover_clipn.jpg" width="200" />
-<!-- ![image](/image/clipn.png) -->
+<img style="float: left; margin-right: 24px; margin-bottom: 8px;" src="/image/cover_clipn.jpg" width="190" />
 
+High-content, image-based drug screening (HCS) is widely used in pharmaceutical research, but each institute develops its own pipeline — leaving studies isolated. We introduced the concept of integrated HCS drug screens and developed **CLIP<sup>n</sup>**, a contrastive learning framework that aligns heterogeneous datasets into a shared latent space to enable cross-dataset predictions, bridging studies performed over 20 years apart. Published in [*Nature Biotechnology*](https://doi.org/10.1038/s41587-025-02729-2), 2025.
 
-High-content, image-based drug screening (HCS) is widely used in pharmaceutical research, but a major bottleneck is that each institute develops its own pipeline (cell lines, staining protocols, drug categories). Because of this, studies remain isolated. In this work, we introduced the concept of integrated HCS drug screens, enabling different studies—even those performed over 20 years ago—to jointly inform characterization of unknown compounds. We achieved this by developing a new approach called **CLIP<sup>n</sup>**, a contrastive learning framework that aligns heterogeneous datasets into a shared latent space to facilitate cross-dataset predictions. This study was published in [*Nature Biotechnology*](https://doi.org/10.1038/s41587-025-02729-2).
+[\[Project Page\]](https://github.com/AltschulerWu-Lab/CLIPn) [\[Publication\]](https://doi.org/10.1038/s41587-025-02729-2)
+> **Bao F**, Li L, Hammerlindl H, Shen SQ, Hammerlindl S, Altschuler SJ<sup>#</sup>, Wu LF<sup>#</sup>. Nature Biotechnology. 2025. https://doi.org/10.1038/s41587-025-02729-2
 
-[\[Project Page\]](https://github.com/AltschulerWu-Lab/CLIPn)[\[Publication\]](https://doi.org/10.1038/s41587-025-02729-2)
-> Transitive prediction of small-molecule function through alignment of high-content screening resources. Feng Bao, Li Li, Heinz Hammerlindl, Susan Q. Shen, Sabrina Hammerlindl, Steven J. Altschuler<sup>\#</sup> and Lani F. Wu<sup>\#</sup>. Nature Biotechnology 2025. https://doi.org/10.1038/s41587-025-02729-2z
+---
 
-### **Enhancing the spatial resolution of diverse spatial omics platforms by joint generative modeling of space, image and omics**
+### **Tissue characterization at enhanced resolution across spatial omics platforms with deep generative modeling**
 
-Tissue image (e.g., H&E) is always available along with the generation of spatial omics data. A typical tissue image can be in extremely high resolution (usually at least millions of pixels, note 1 million is just 1000 x 1000 pixels, smaller than the resolution of an iPhone photo) compared with the spatial omics resolution (usually in thousands). A natual idea is to use the high-resolution image to guide the enhancement of low-resolution omics. We tested this idea through a generative modeling of spatial coordinates, image and omics. It works for different omics types, spatial technologies and the recently emerging spatial multiomics. The work was published in [*Nature Communications*](https://www.nature.com/articles/s41467-024-50837-5). 
+Tissue images (e.g., H&E) are generated alongside spatial omics data but at far higher resolution. We exploit this by jointly modeling space, image, and omics through a deep generative framework to enhance spatial omics resolution across diverse platforms and emerging spatial multiomics technologies. Published in [*Nature Communications*](https://doi.org/10.1038/s41467-024-50837-5), 2024.
 
-### **Multi-modality structured embedding for spatially resolved transcriptomics analysis**
+[\[Publication\]](https://doi.org/10.1038/s41467-024-50837-5)
+> Li B, **Bao F**, Hou Y, Li F, Li H, Deng Y, Dai Q. Nature Communications 15:6541. 2024. https://doi.org/10.1038/s41467-024-50837-5
 
-Decomposing cell heterogeneity of complex biological systems is an important step to the comprehensive understanding of their organizations and mechanisms. Transcrptomics and imaging are two most widely used approaches to study tissue heterogeneity. Here we try to combine information from these two modalities and provide more extensive dissection of subpopulations in tissues. We follow two principles in design: (1) structured information from single modality (e.g. apparent subpopulations) are preserved after combinations; (2) corrupted information in one modality will not pollute the others. 
+---
+
+### **Multi-modality structured embedding for spatially resolved transcriptomics (MUSE)**
+
+Transcriptomics and imaging are the two most widely used approaches to study tissue heterogeneity. **MUSE** combines information from both modalities while preserving structured information from each single modality and preventing corruption in one modality from polluting the other. Published in [*Nature Biotechnology*](https://doi.org/10.1038/s41587-022-01251-z), 2022.
 
 [\[Project Page\]](https://github.com/AltschulerWu-Lab/MUSE) [\[Code\]](https://github.com/AltschulerWu-Lab/MUSE) [\[Publication\]](https://doi.org/10.1038/s41587-022-01251-z)
+> **Bao F**<sup>\*</sup>, Deng Y<sup>\*</sup>, Wan S, Wang B, Dai Q<sup>#</sup>, Altschuler SJ<sup>#</sup>, Wu LF<sup>#</sup>. Nature Biotechnology. 2022. https://doi.org/10.1038/s41587-022-01251-z
 
-> Characterizing tissue composition through combined analysis of morphologies and transcriptional states. Feng Bao<sup>\*</sup>, Yue Deng<sup>\*</sup>, Sen Wan, Bo Wang, Qionghai Dai<sup>\#</sup>, Steven J. Altschuler<sup>\#</sup>, Lani F. Wu<sup>\#</sup>. Nature Biotechnology. https://doi.org/10.1038/s41587-022-01251-z
+---
 
+### **Deep association kernel learning to explain genetic causality for complex diseases (DAK)**
 
-### **Deep association kernel learning to explain the genetic causality for complex diseases**
+<img style="float: left; margin-right: 24px; margin-bottom: 8px;" src="/image/cover.jpeg" width="190" />
 
-<img style="float: left;" src = "/image/cover.jpeg" width ="200" />
-Causal loci contribute to complex diseases in various manners. The comprehensive identification of suspicious genes requires a general genome-wide association study (GWAS) model that can work with different types of genetic effects. Here, we try to use a trainable framework to automatically detect these associated positions meanwhile provide a statistical significance quantification. This work was published as a cover paper in the new Machine Learning Journal of Cell Press [_Patterns_](https://www.sciencedirect.com/journal/patterns/vol/1/issue/6).
+Causal loci contribute to complex diseases in various ways. We developed a trainable framework to automatically detect associated genetic positions while providing statistical significance quantification. Published as a **cover paper** in [*Patterns*](https://doi.org/10.1016/j.patter.2020.100057) (Cell Press), 2020.
 
+[\[Project Page\]](https://github.com/feng-bao-ucsf/DAK) [\[Code\]](https://github.com/feng-bao-ucsf/DAK) [\[Publication\]](https://doi.org/10.1016/j.patter.2020.100057)
+> **Bao F**, Deng Y, Du M, Ren Z, Wan S, et al. Patterns 1.6:100057. 2020.
 
-[\[Project Page\]](https://github.com/feng-bao-ucsf/DAK) [\[Code\]](https://github.com/feng-bao-ucsf/DAK) [\[Publication\]](https://www.sciencedirect.com/science/article/pii/S2666389920300684)
+---
 
-> Explaining the Genetic Causality for Complex Phenotype via Deep Association Kernel Learning. Bao, Feng, et al. Patterns 1.6 (2020): 100057. 
+### **Recurrent neural network for single-cell RNA-seq imputation (scScope)**
 
+<img style="float: left; margin-right: 24px; margin-bottom: 8px;" src="/image/scscope.png" width="460" />
 
+scScope is a deep-learning approach that accurately and rapidly identifies cell-type composition and transcriptional state from noisy single-cell gene-expression profiles containing dropout events, scaling to millions of cells. Published in [*Nature Methods*](https://doi.org/10.1038/s41592-019-0353-7), 2019.
 
-### **Recurrent neural network for single-cell RNAseq imputations**
+[\[Project Page\]](https://github.com/AltschulerWu-Lab/scScope) [\[Code\]](https://github.com/AltschulerWu-Lab/scScope) [\[Publication\]](https://doi.org/10.1038/s41592-019-0353-7)
+> Deng Y<sup>\*</sup>, **Bao F**<sup>\*</sup>, Dai Q, Wu LF<sup>#</sup>, Altschuler SJ<sup>#</sup>. Nature Methods 16:311–314. 2019. https://doi.org/10.1038/s41592-019-0353-7
 
-scScope is a deep-learning based approach that can accurately and rapidly identify cell-type composition and transcriptional state from noisy single-cell gene-expression profiles containing dropout events and scale to millions of cells. This work was published in _Nature Methods_.
+---
 
-[\[Project Page\]](https://github.com/AltschulerWu-Lab/scScope) [\[Code\]](https://github.com/AltschulerWu-Lab/scScope) [\[Publication\]](https://www.nature.com/articles/s41592-019-0353-7)
+## Academic Service
 
-<img style="float: left;" src = "/image/scscope.png" width ="500" />
-<!-- ![image](/image/scscope.png) -->
-
-> Scalable analysis of cell-type composition from single-cell transcriptomics using deep recurrent learning. Yue Deng\*, Feng Bao\*, Qionghai Dai, Lani F. Wu#, Steven J. Altschuler#, Nature Methods, 2019, DOI: https://doi.org/10.1038/s41592-019-0353-7
-
-
-
-
-### Academic service
-Reviewer for the following journals:
-- Cell
-- Nature Biotech.
-- Nature Biomedical Eng. 
-- Cell Systems
-- Nature Communications
-- Genome Biology
-- IEEE Transactions on Fuzzy Systems
-- IEEE Transactions on Neural Networks and Learning Systems
-- Briefings in Bioinformatics
+Reviewer for:
+- Cell · Nature Biotechnology · Nature Biomedical Engineering · Nature Communications
+- Cell Systems · Genome Biology · Briefings in Bioinformatics
+- IEEE Transactions on Neural Networks and Learning Systems · IEEE Transactions on Fuzzy Systems
 - IEEE Journal of Selected Topics in Signal Processing
 
-_last update: Jul 11th, 2025_
+---
+
+_Last update: April 2026_
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102911962-1"></script>
@@ -96,6 +110,5 @@ _last update: Jul 11th, 2025_
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-102911962-1');
 </script>
