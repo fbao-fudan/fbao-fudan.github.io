@@ -5,13 +5,13 @@
 
 /* ── Color palette ──────────────────────────────────────────── */
 :root {
-  --cream:      #EDE8D5;
-  --cream-dark: #E0D9C3;
-  --crimson:    #9B2B2B;
-  --crimson-dk: #7A2020;
-  --text:       #2C2C2C;
-  --text-light: #5A5550;
-  --border:     #D4CCBA;
+  --cream:      #F0ECEA;
+  --cream-dark: #E4DFDC;
+  --crimson:    #C8302A;
+  --crimson-dk: #A02420;
+  --text:       #2A2A2A;
+  --text-light: #6B6560;
+  --border:     #CEC9C6;
 }
 
 /* ── Global reset ───────────────────────────────────────────── */
@@ -53,7 +53,7 @@ header img {
   width: 100px !important;
   height: 100px !important;
   object-fit: cover;
-  border: 3px solid rgba(237,232,213,.35);
+  border: 3px solid rgba(240,236,234,.35);
   margin: 0 auto 8px;
   display: block;
 }
@@ -70,7 +70,7 @@ header h1 {
 
 header p {
   font-size: .82rem !important;
-  color: rgba(237,232,213,.7) !important;
+  color: rgba(240,236,234,.7) !important;
   text-align: center;
   margin: 0;
   font-style: italic;
@@ -102,15 +102,15 @@ header ul li a {
   text-align: center;
   font-size: .78rem;
   padding: 6px 10px;
-  border: 1px solid rgba(237,232,213,.4);
+  border: 1px solid rgba(240,236,234,.4);
   border-radius: 4px;
   letter-spacing: .05em;
   transition: background .2s, border-color .2s;
 }
 
 header ul li a:hover {
-  background: rgba(237,232,213,.15);
-  border-color: rgba(237,232,213,.7);
+  background: rgba(240,236,234,.15);
+  border-color: rgba(240,236,234,.7);
   text-decoration: none !important;
 }
 
