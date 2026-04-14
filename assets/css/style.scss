@@ -6,16 +6,13 @@
 :root {
   --page: #f3f5f8;
   --paper: #fffdfb;
-  --panel: #ffffff;
   --ink: #171c21;
   --muted: #68727d;
   --line: #dde3ea;
   --line-strong: #c9d1da;
   --crimson: #b8272f;
   --crimson-dark: #6f1723;
-  --crimson-soft: #fae7ea;
   --green: #0d766d;
-  --green-soft: #e3f3f0;
   --charcoal: #24282d;
   --shadow: 0 28px 70px rgba(28, 35, 43, .14);
 }
@@ -180,14 +177,17 @@ section::before {
   border-radius: 8px 8px 0 0;
 }
 
-h1, h2, h3, h4 {
+section h1,
+section h2,
+section h3,
+section h4 {
   color: var(--ink);
   font-family: inherit;
   line-height: 1.2;
   letter-spacing: 0;
 }
 
-h1 {
+section h1 {
   margin: 0 0 22px;
   max-width: 780px;
   color: var(--ink);
@@ -195,7 +195,7 @@ h1 {
   font-weight: 860;
 }
 
-h1::after {
+section h1::after {
   content: "";
   display: block;
   width: 84px;
@@ -205,7 +205,7 @@ h1::after {
   background: linear-gradient(90deg, var(--crimson), var(--green));
 }
 
-h2 {
+section h2 {
   margin: 50px 0 18px;
   padding: 0 0 12px;
   color: var(--charcoal);
@@ -214,7 +214,7 @@ h2 {
   border-bottom: 1px solid var(--line);
 }
 
-h2::before {
+section h2::before {
   content: "";
   display: inline-block;
   width: 26px;
@@ -225,14 +225,14 @@ h2::before {
   vertical-align: .32em;
 }
 
-h3 {
+section h3 {
   margin: 34px 0 12px;
   color: var(--crimson-dark);
   font-size: 1.1rem;
   font-weight: 820;
 }
 
-h4 {
+section h4 {
   color: var(--muted);
   font-size: .96rem;
   font-style: normal;
@@ -411,11 +411,11 @@ footer {
     padding: 38px 24px 30px !important;
   }
 
-  h1 {
+  section h1 {
     font-size: 2rem;
   }
 
-  h2 {
+  section h2 {
     margin-top: 38px;
   }
 }
