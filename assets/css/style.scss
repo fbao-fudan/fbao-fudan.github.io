@@ -13,11 +13,9 @@
   --camel-light:    #c99a88;
   --camel-pale:     rgba(176, 122, 104, .12);
   --foghorn:        #7d8574;
-  --foghorn-light:  #a0a897;
   --wine:           #6b1f2e;
   --wine-light:     #8c2a3e;
   --wine-pale:      rgba(107, 31, 46, .1);
-  --snowy:          #e8e4df;
   --snowy-warm:     #f2eeea;
   --page:           #dedad4;
   --ink:            #1c1410;
@@ -561,6 +559,11 @@ footer { display: none; }
    RESPONSIVE
    ════════════════════════════════════════════════ */
 @media (max-width: 900px) {
+  body {
+    word-wrap: normal;
+    overflow-wrap: normal;
+  }
+
   .wrapper {
     width: calc(100% - 28px) !important;
     max-width: 780px !important;
@@ -590,7 +593,20 @@ footer { display: none; }
     width: 80px !important;
     height: 80px !important;
     margin: 0;
-    grid-row: span 2;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  header h1 {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+  }
+
+  header p {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
   }
 
   header h1,
@@ -607,17 +623,50 @@ footer { display: none; }
     padding: 40px 26px 34px !important;
   }
 
+  section p,
+  section li,
+  .timeline-card,
+  header h1,
+  header p {
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+
+  section a {
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+
+  section > ol a {
+    overflow-wrap: anywhere;
+  }
+
   section h1 { font-size: 2rem; }
   section h2 { margin-top: 42px; }
 
   .timeline-item,
   .awards-timeline .timeline-item {
-    grid-template-columns: 78px 18px minmax(0, 1fr);
+    grid-template-columns: 18px minmax(0, 1fr);
     gap: 10px;
   }
 
   .timeline-year {
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: 0;
     font-size: .74rem;
+    text-align: left;
+  }
+
+  .timeline-dot {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-top: 4px;
+  }
+
+  .timeline-card {
+    grid-column: 2;
+    grid-row: 2;
   }
 
   .timeline-card {
@@ -626,6 +675,7 @@ footer { display: none; }
 
   .timeline-item:not(:last-child)::before,
   .awards-timeline .timeline-item:not(:last-child)::before {
-    left: 94px;
+    top: 20px;
+    left: 6px;
   }
 }

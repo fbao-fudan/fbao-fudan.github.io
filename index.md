@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Feng BAO 鲍峰
 
 I am a Principal Investigator at the [College for Future Information Technology](https://www.fudan.edu.cn/en/), [Fudan University](https://www.fudan.edu.cn/en/), Shanghai. My research develops statistical learning and AI methods to answer fundamental biological questions and advance medicine — spanning self-supervised representation learning, multi-modal information fusion, causal inference in complex biological systems, and deep generative models for spatial omics.
