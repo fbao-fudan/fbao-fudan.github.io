@@ -3,27 +3,33 @@
 
 @import "{{ site.theme }}";
 
-/* ── Color Palette: Charcoal + Teal ──────────── */
+/* ── Color Palette ────────────────────────────── */
+/* CAMEL · FOGHORN · DARK SEA · SNOWY PEAKS · WINDSOR WINE */
 :root {
-  --charcoal:      #111827;
-  --charcoal-2:    #1a2332;
-  --charcoal-3:    #243347;
-  --teal:          #0d9488;
-  --teal-light:    #14b8a6;
-  --teal-bright:   #2dd4bf;
-  --teal-pale:     rgba(13, 148, 136, .1);
-  --white:         #ffffff;
-  --page:          #f1f5f9;
-  --ink:           #0f172a;
-  --ink-2:         #1e293b;
-  --muted:         #64748b;
-  --line:          #e2e8f0;
-  --line-strong:   #cbd5e1;
-  --shadow-sm:     0 4px 16px rgba(0, 0, 0, .08);
-  --shadow:        0 20px 56px rgba(0, 0, 0, .11);
-  --shadow-lg:     0 32px 80px rgba(0, 0, 0, .18);
-  --radius:        12px;
-  --radius-sm:     8px;
+  --dark-sea:       #1b4848;
+  --dark-sea-2:     #153838;
+  --dark-sea-3:     #0f2a2a;
+  --camel:          #b07a68;
+  --camel-light:    #c99a88;
+  --camel-pale:     rgba(176, 122, 104, .12);
+  --foghorn:        #7d8574;
+  --foghorn-light:  #a0a897;
+  --wine:           #6b1f2e;
+  --wine-light:     #8c2a3e;
+  --wine-pale:      rgba(107, 31, 46, .1);
+  --snowy:          #e8e4df;
+  --snowy-warm:     #f2eeea;
+  --page:           #dedad4;
+  --ink:            #1c1410;
+  --ink-2:          #2d2620;
+  --muted:          #7a7068;
+  --line:           #d8d2cb;
+  --line-strong:    #c8c0b8;
+  --shadow-sm:      0 4px 16px rgba(15, 42, 42, .1);
+  --shadow:         0 20px 56px rgba(15, 42, 42, .13);
+  --shadow-lg:      0 32px 80px rgba(15, 42, 42, .2);
+  --radius:         12px;
+  --radius-sm:      8px;
 }
 
 /* ── Reset ────────────────────────────────────── */
@@ -35,8 +41,8 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(ellipse 70% 50% at 65% 0%,  rgba(13, 148, 136, .07) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 0%  70%,  rgba(13, 148, 136, .05) 0%, transparent 45%),
+    radial-gradient(ellipse 70% 50% at 70% 0%,  rgba(176, 122, 104, .08) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 0%  65%,  rgba(107,  31,  46, .06) 0%, transparent 45%),
     var(--page);
   color: var(--ink);
   font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -68,16 +74,16 @@ header {
   min-height: calc(100vh - 96px);
   padding: 36px 28px !important;
   overflow: hidden;
-  background: linear-gradient(170deg, var(--charcoal-3) 0%, var(--charcoal-2) 45%, var(--charcoal) 100%) !important;
-  border: 1px solid rgba(13, 148, 136, .2);
+  background: linear-gradient(165deg, var(--dark-sea) 0%, var(--dark-sea-2) 55%, var(--dark-sea-3) 100%) !important;
+  border: 1px solid rgba(176, 122, 104, .22);
   border-radius: var(--radius);
   box-shadow:
     var(--shadow-lg),
     inset 0 1px 0 rgba(255, 255, 255, .05),
-    0 0 0 1px rgba(0, 0, 0, .3);
+    0 0 0 1px rgba(0, 0, 0, .25);
 }
 
-/* Teal top bar */
+/* Wine → Camel top accent bar */
 header::after {
   content: "";
   position: absolute;
@@ -85,9 +91,9 @@ header::after {
   height: 3px;
   background: linear-gradient(90deg,
     transparent 0%,
-    var(--teal) 25%,
-    var(--teal-bright) 50%,
-    var(--teal) 75%,
+    var(--wine) 20%,
+    var(--camel) 50%,
+    var(--wine) 80%,
     transparent 100%);
   border-radius: var(--radius) var(--radius) 0 0;
 }
@@ -103,7 +109,7 @@ header::before {
   font-weight: 800;
   line-height: 1;
   letter-spacing: -.06em;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   pointer-events: none;
   user-select: none;
 }
@@ -117,18 +123,18 @@ header img {
   margin: 8px auto 26px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid rgba(13, 148, 136, .6);
+  border: 3px solid rgba(176, 122, 104, .65);
   box-shadow:
-    0 0 0 6px rgba(13, 148, 136, .1),
-    0 0 0 7px rgba(13, 148, 136, .05),
+    0 0 0 6px rgba(176, 122, 104, .1),
+    0 0 0 7px rgba(176, 122, 104, .05),
     0 22px 44px rgba(0, 0, 0, .4);
   transition: box-shadow .3s, border-color .3s;
 }
 
 header img:hover {
-  border-color: var(--teal-bright);
+  border-color: var(--camel-light);
   box-shadow:
-    0 0 0 6px rgba(45, 212, 191, .15),
+    0 0 0 6px rgba(201, 154, 136, .18),
     0 22px 44px rgba(0, 0, 0, .45);
 }
 
@@ -141,6 +147,7 @@ header h1 {
   font-weight: 700;
   line-height: 1.28;
   text-align: center;
+  font-family: 'Playfair Display', Georgia, serif !important;
   letter-spacing: .01em;
 }
 
@@ -156,9 +163,9 @@ header p {
 }
 
 header a {
-  color: var(--teal-bright) !important;
+  color: var(--camel-light) !important;
   text-decoration: none;
-  border-bottom: 1px solid rgba(45, 212, 191, .28);
+  border-bottom: 1px solid rgba(201, 154, 136, .3);
   transition: color .15s, border-color .15s;
 }
 header a:hover {
@@ -174,7 +181,7 @@ header ul {
   margin: 28px 0 0;
   display: grid;
   gap: 9px;
-  border-top: 1px solid rgba(13, 148, 136, .22);
+  border-top: 1px solid rgba(176, 122, 104, .22);
 }
 
 header ul li { margin: 0; }
@@ -186,8 +193,8 @@ header ul li a {
   justify-content: center;
   padding: 8px 14px;
   color: rgba(255, 255, 255, .88) !important;
-  background: rgba(13, 148, 136, .1);
-  border: 1px solid rgba(13, 148, 136, .24);
+  background: rgba(176, 122, 104, .1);
+  border: 1px solid rgba(176, 122, 104, .24);
   border-radius: var(--radius-sm);
   font-size: .82rem;
   font-weight: 600;
@@ -197,9 +204,9 @@ header ul li a {
 }
 
 header ul li a:hover {
-  background: rgba(13, 148, 136, .22);
-  border-color: rgba(45, 212, 191, .5);
-  color: var(--teal-bright) !important;
+  background: rgba(176, 122, 104, .22);
+  border-color: rgba(201, 154, 136, .5);
+  color: var(--camel-light) !important;
   transform: translateY(-1px);
   text-decoration: none !important;
 }
@@ -213,13 +220,13 @@ section {
   float: none !important;
   padding: 62px 74px !important;
   position: relative;
-  background: var(--white);
+  background: var(--snowy-warm);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
-/* Teal top accent line */
+/* Wine → Camel top accent line */
 section::before {
   content: "";
   position: absolute;
@@ -227,22 +234,28 @@ section::before {
   height: 3px;
   background: linear-gradient(90deg,
     transparent 0%,
-    var(--teal) 20%,
-    var(--teal-bright) 50%,
-    var(--teal) 80%,
+    var(--wine) 20%,
+    var(--camel) 50%,
+    var(--wine) 80%,
     transparent 100%);
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
 /* ── Headings ─────────────────────────────────── */
+section h1,
+section h2,
+section h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
 section h1 {
   margin: 0 0 22px;
   max-width: 780px;
-  color: var(--ink);
+  color: var(--dark-sea-3);
   font-size: 2.55rem;
   font-weight: 800;
   line-height: 1.18;
-  letter-spacing: -.02em;
+  letter-spacing: -.01em;
 }
 
 section h1::after {
@@ -252,7 +265,7 @@ section h1::after {
   height: 3px;
   margin-top: 20px;
   border-radius: 4px;
-  background: linear-gradient(90deg, var(--teal), var(--teal-bright));
+  background: linear-gradient(90deg, var(--wine), var(--camel));
 }
 
 section h2 {
@@ -261,7 +274,7 @@ section h2 {
   color: var(--ink-2);
   font-size: 1.34rem;
   font-weight: 700;
-  letter-spacing: -.01em;
+  letter-spacing: .005em;
   border-bottom: 1px solid var(--line);
 }
 
@@ -272,16 +285,16 @@ section h2::before {
   height: 3px;
   margin-right: 11px;
   border-radius: 3px;
-  background: var(--teal);
+  background: var(--wine);
   vertical-align: .32em;
 }
 
 section h3 {
   margin: 36px 0 10px;
-  color: var(--ink);
-  font-size: 1.06rem;
+  color: var(--ink-2);
+  font-size: 1.08rem;
   font-weight: 700;
-  letter-spacing: -.01em;
+  letter-spacing: .005em;
 }
 
 section h4 {
@@ -289,6 +302,7 @@ section h4 {
   font-size: .95rem;
   font-style: normal;
   font-weight: 600;
+  font-family: 'Inter', sans-serif;
 }
 
 /* ── Body text ────────────────────────────────── */
@@ -298,15 +312,15 @@ p {
 }
 
 a {
-  color: var(--teal);
+  color: var(--wine);
   text-decoration: none;
-  border-bottom: 1px solid rgba(13, 148, 136, .28);
+  border-bottom: 1px solid rgba(107, 31, 46, .28);
   transition: color .15s, border-color .15s;
 }
 
 a:hover {
-  color: var(--ink-2);
-  border-bottom-color: rgba(30, 41, 59, .35);
+  color: var(--dark-sea-2);
+  border-bottom-color: rgba(21, 56, 56, .35);
 }
 
 strong {
@@ -325,18 +339,18 @@ pre {
   padding: 18px 22px;
   overflow-x: auto;
   color: var(--ink);
-  background: linear-gradient(180deg, #f8fafc, #f1f5f9);
+  background: linear-gradient(180deg, #f5f1ec, #ede8e2);
   border: 1px solid var(--line);
-  border-left: 4px solid var(--teal);
+  border-left: 4px solid var(--camel);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
 }
 
 code {
   padding: 2px 6px;
-  background: rgba(13, 148, 136, .09);
+  background: var(--camel-pale);
   border-radius: 5px;
-  color: #0a7a70;
+  color: var(--wine);
 }
 
 /* ── Blockquotes (citations) ──────────────────── */
@@ -344,9 +358,9 @@ blockquote {
   margin: 14px 0 28px;
   padding: 14px 18px 14px 22px;
   color: var(--muted);
-  background: #f8fafc;
+  background: linear-gradient(180deg, #f5f1ec, #ede8e0);
   border: 1px solid var(--line);
-  border-left: 4px solid rgba(13, 148, 136, .38);
+  border-left: 4px solid rgba(125, 133, 116, .5);
   border-radius: var(--radius-sm);
   font-size: .88rem;
   font-style: normal;
@@ -379,7 +393,7 @@ section > ul > li::before {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--teal);
+  background: var(--camel);
 }
 
 section > ul > li > ol,
@@ -391,7 +405,7 @@ section > ol {
 section > ul > li > ol > li { padding-left: 0; }
 section > ul > li > ol > li::before { content: none; }
 
-/* ── Ordered lists in section ────────────────── */
+/* ── Ordered lists (publications) ────────────── */
 section > ol {
   padding-left: 0;
   list-style: none;
@@ -416,8 +430,8 @@ section > ol > li::before {
   text-align: center;
   font-size: .78rem;
   font-weight: 700;
-  color: var(--teal);
-  background: var(--teal-pale);
+  color: var(--wine);
+  background: var(--wine-pale);
   border-radius: 50%;
 }
 
@@ -434,7 +448,7 @@ section img {
   max-width: 100%;
   border-radius: var(--radius-sm);
   border: 1px solid var(--line);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, .09);
+  box-shadow: 0 12px 32px rgba(15, 42, 42, .1);
 }
 
 /* ── Footer ───────────────────────────────────── */
