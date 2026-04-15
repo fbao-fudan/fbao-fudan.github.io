@@ -52,8 +52,8 @@ body {
 
 /* ── Layout ───────────────────────────────────── */
 .wrapper {
-  width: min(1260px, calc(100% - 56px)) !important;
-  max-width: none !important;
+  width: calc(100% - 56px) !important;
+  max-width: 1260px !important;
   margin: 0 auto !important;
   padding: 48px 0 !important;
   display: grid;
@@ -562,7 +562,8 @@ footer { display: none; }
    ════════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .wrapper {
-    width: min(100% - 28px, 780px) !important;
+    width: calc(100% - 28px) !important;
+    max-width: 780px !important;
     padding: 18px 0 !important;
     display: block;
   }
