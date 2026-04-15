@@ -16,30 +16,99 @@ Contact: fbao@fudan.edu.cn
 
 ## Career Path
 
-- **2024–present:** Principal Investigator, College for Future Information Technology, [Fudan University](https://www.fudan.edu.cn/en/), Shanghai
-- **2019–2024:** Postdoctoral Researcher, Department of Pharmaceutical Chemistry, University of California, San Francisco  
-  Advisors: Prof. Steven J. Altschuler and Prof. Lani F. Wu
-- **2018–2019:** Visiting Scholar, Department of Data Science, [Dana-Farber Cancer Institute](https://www.dana-farber.org/), Harvard Medical School  
-  Advisors: Prof. Guo-Cheng Yuan and Prof. Long Cai
-- **2014–2019:** Ph.D. in Control Science and Engineering, Department of Automation, [Tsinghua University](https://www.tsinghua.edu.cn/en/)  
-  Advisor: Academician Qionghai Dai
-- **2010–2014:** B.Eng. in Electronic Engineering, School of Electronic Engineering, Xidian University
+<div class="timeline career-timeline">
+  <div class="timeline-item">
+    <div class="timeline-year">2024&ndash;present</div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
+      <div class="timeline-title">Principal Investigator</div>
+      <div class="timeline-meta">College for Future Information Technology, <a href="https://www.fudan.edu.cn/en/">Fudan University</a>, Shanghai</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2019&ndash;2024</div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
+      <div class="timeline-title">Postdoctoral Researcher</div>
+      <div class="timeline-meta">Department of Pharmaceutical Chemistry, University of California, San Francisco</div>
+      <div class="timeline-note">Advisors: Prof. Steven J. Altschuler and Prof. Lani F. Wu</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2018&ndash;2019</div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
+      <div class="timeline-title">Visiting Scholar</div>
+      <div class="timeline-meta">Department of Data Science, <a href="https://www.dana-farber.org/">Dana-Farber Cancer Institute</a>, Harvard Medical School</div>
+      <div class="timeline-note">Advisors: Prof. Guo-Cheng Yuan and Prof. Long Cai</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2014&ndash;2019</div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
+      <div class="timeline-title">Ph.D. in Control Science and Engineering</div>
+      <div class="timeline-meta">Department of Automation, <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a></div>
+      <div class="timeline-note">Advisor: Academician Qionghai Dai</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2010&ndash;2014</div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
+      <div class="timeline-title">B.Eng. in Electronic Engineering</div>
+      <div class="timeline-meta">School of Electronic Engineering, Xidian University</div>
+    </div>
+  </div>
+</div>
 
 ---
 
 ## Awards & Honors
 
-- **2025:** Shanghai Science and Technology Leadership U35 Nomination
-- **2025:** Xiaomi Young Scholar
-- **2023:** National High-level Overseas Young Talent
-- **2023:** Shanghai High-level Overseas Young Talent
-- **2021:** Cell Press China Most Popular Article
-- **2021:** Germany DAAD AInet Fellowship
-- **2021:** CICAI International Conference on Artificial Intelligence, Best Paper Finalist
-- **2020:** IEEE CIS Transactions on Fuzzy Systems Outstanding Paper Award
-- **2020:** World Artificial Intelligence Conference Outstanding Young Paper Award
-- **2019:** Beijing Outstanding Doctoral Dissertation
-- **2019:** Tsinghua University Outstanding Doctoral Dissertation
+<div class="timeline awards-timeline">
+  <div class="timeline-item">
+    <div class="timeline-year">2025</div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
+      <div class="timeline-title">Shanghai Science and Technology Leadership U35 Nomination</div>
+      <div class="timeline-title">Xiaomi Young Scholar</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2023</div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
+      <div class="timeline-title">National High-level Overseas Young Talent</div>
+      <div class="timeline-title">Shanghai High-level Overseas Young Talent</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2021</div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
+      <div class="timeline-title">Cell Press China Most Popular Article</div>
+      <div class="timeline-title">Germany DAAD AInet Fellowship</div>
+      <div class="timeline-title">CICAI International Conference on Artificial Intelligence, Best Paper Finalist</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2020</div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
+      <div class="timeline-title">IEEE CIS Transactions on Fuzzy Systems Outstanding Paper Award</div>
+      <div class="timeline-title">World Artificial Intelligence Conference Outstanding Young Paper Award</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year">2019</div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
+      <div class="timeline-title">Beijing Outstanding Doctoral Dissertation</div>
+      <div class="timeline-title">Tsinghua University Outstanding Doctoral Dissertation</div>
+    </div>
+  </div>
+</div>
 
 ---
 

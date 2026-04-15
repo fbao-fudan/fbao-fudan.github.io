@@ -305,6 +305,109 @@ section h4 {
   font-family: 'Inter', sans-serif;
 }
 
+/* ── Timelines ────────────────────────────────── */
+.timeline {
+  margin: 22px 0 6px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 104px 20px minmax(0, 1fr);
+  gap: 14px;
+  position: relative;
+}
+
+.timeline-item + .timeline-item {
+  margin-top: 18px;
+}
+
+.timeline-year {
+  padding-top: 13px;
+  color: var(--wine);
+  font-size: .78rem;
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.timeline-dot {
+  position: relative;
+  width: 13px;
+  height: 13px;
+  margin-top: 17px;
+  border-radius: 50%;
+  background: var(--snowy-warm);
+  border: 3px solid var(--camel);
+  box-shadow: 0 0 0 5px rgba(176, 122, 104, .14);
+}
+
+.timeline-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 31px;
+  bottom: -18px;
+  left: 124px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(176, 122, 104, .55), rgba(176, 122, 104, .08));
+}
+
+.timeline-card {
+  padding: 13px 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .08)),
+    #eee8e1;
+  border: 1px solid rgba(200, 192, 184, .82);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-title {
+  color: var(--ink-2);
+  font-size: .96rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.timeline-title + .timeline-title {
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(200, 192, 184, .56);
+}
+
+.timeline-meta {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+.timeline-note {
+  margin-top: 5px;
+  color: var(--foghorn);
+  font-size: .84rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.awards-timeline .timeline-item {
+  grid-template-columns: 70px 20px minmax(0, 1fr);
+}
+
+.awards-timeline .timeline-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .32), rgba(255, 255, 255, .08)),
+    #f1ebe6;
+}
+
+.awards-timeline .timeline-dot {
+  border-color: var(--wine-light);
+  box-shadow: 0 0 0 5px var(--wine-pale);
+}
+
+.awards-timeline .timeline-item:not(:last-child)::before {
+  left: 90px;
+}
+
 /* ── Body text ────────────────────────────────── */
 p {
   margin: .78em 0 1.08em;
@@ -505,4 +608,23 @@ footer { display: none; }
 
   section h1 { font-size: 2rem; }
   section h2 { margin-top: 42px; }
+
+  .timeline-item,
+  .awards-timeline .timeline-item {
+    grid-template-columns: 78px 18px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .timeline-year {
+    font-size: .74rem;
+  }
+
+  .timeline-card {
+    padding: 12px 13px;
+  }
+
+  .timeline-item:not(:last-child)::before,
+  .awards-timeline .timeline-item:not(:last-child)::before {
+    left: 94px;
+  }
 }
