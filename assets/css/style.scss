@@ -646,27 +646,22 @@ footer { display: none; }
 
   .timeline-item,
   .awards-timeline .timeline-item {
-    grid-template-columns: 18px minmax(0, 1fr);
-    gap: 10px;
+    display: block;
+    padding-left: 30px;
   }
 
   .timeline-year {
-    grid-column: 2;
-    grid-row: 1;
     padding-top: 0;
+    margin-bottom: 7px;
     font-size: .74rem;
     text-align: left;
   }
 
   .timeline-dot {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    margin-top: 4px;
-  }
-
-  .timeline-card {
-    grid-column: 2;
-    grid-row: 2;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    margin-top: 0;
   }
 
   .timeline-card {
@@ -676,6 +671,39 @@ footer { display: none; }
   .timeline-item:not(:last-child)::before,
   .awards-timeline .timeline-item:not(:last-child)::before {
     top: 20px;
+    bottom: -18px;
     left: 6px;
+  }
+}
+
+@media (max-width: 520px) {
+  .wrapper {
+    width: calc(100% - 20px) !important;
+  }
+
+  section {
+    padding: 34px 18px 30px !important;
+  }
+
+  .timeline {
+    margin-top: 18px;
+  }
+
+  .timeline-item,
+  .awards-timeline .timeline-item {
+    padding-left: 24px;
+  }
+
+  .timeline-card {
+    padding: 11px 12px;
+  }
+
+  .timeline-title {
+    font-size: .92rem;
+    line-height: 1.42;
+  }
+
+  .timeline-meta {
+    font-size: .86rem;
   }
 }
