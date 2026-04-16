@@ -6,9 +6,7 @@ layout: default
 
 I am a Principal Investigator at the [College for Future Information Technology](https://www.fudan.edu.cn/en/), [Fudan University](https://www.fudan.edu.cn/en/), Shanghai. My research develops statistical learning and AI methods to answer fundamental biological questions and advance medicine — spanning self-supervised representation learning, multi-modal information fusion, causal inference in complex biological systems, and deep generative models for spatial omics.
 
-**Lab website:** [baolab-fudan.github.io](https://baolab-fudan.github.io/)
-
-**We are looking for highly motivated PhD students and postdocs** with backgrounds in machine learning, statistics, bioinformatics, or biology.
+**We are looking for highly motivated PhD students and postdocs** with backgrounds in machine learning, medicine, clinical research, or biology.
 
 Previously, I was a Postdoc (2019–2024) at [Altschuler and Wu Lab](https://www.altschulerwulab.org/), University of California, San Francisco, and a visiting scholar at [Dana-Farber Cancer Institute](https://www.dana-farber.org/), Harvard Medical School (2018–2019). I obtained my PhD from [Tsinghua University](https://www.tsinghua.edu.cn/en/) (2019), advised by Academician Qionghai Dai, and my B.Eng. from Xidian University (2014).
 
