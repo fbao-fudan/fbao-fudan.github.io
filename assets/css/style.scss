@@ -52,9 +52,7 @@ html { min-height: 100%; }
 body {
   min-height: 100vh;
   margin: 0;
-  /* Very faint tree watermark behind everything */
   background:
-    url('/assets/images/tree.svg') right -60px top 40px / 340px no-repeat,
     radial-gradient(ellipse 60% 40% at 80% 10%, rgba(45,106,79,.05) 0%, transparent 55%),
     var(--page);
   color: var(--ink);
@@ -91,9 +89,9 @@ header {
   padding: 40px 30px !important;
   overflow: hidden;
 
-  /* Forest gradient + big tree */
+  /* Forest gradient + big tree silhouette */
   background:
-    url('/assets/images/tree.svg') bottom center / 112% no-repeat,
+    url('/assets/images/tree.svg') bottom center / 96% no-repeat,
     linear-gradient(170deg, var(--forest-top) 0%, var(--forest-mid) 50%, var(--forest-dark) 100%) !important;
 
   border: 1px solid rgba(255,255,255,.06);

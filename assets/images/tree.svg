@@ -1,80 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 540" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 380" fill="white">
 
-  <!-- ── Trunk ──────────────────────────────────── -->
-  <path d="M 186 530 L 188 316 Q 200 300 212 316 L 214 530 Z"
-        fill="white" opacity="0.48"/>
+  <!-- Trunk — natural taper from base to canopy -->
+  <path d="M 143 258
+           C 141 285 139 315 136 358
+           L 164 358
+           C 161 315 159 285 157 258 Z"
+        opacity="0.55"/>
 
-  <!-- Surface roots -->
-  <path d="M 188 520 Q 160 524 126 534" stroke="white" stroke-width="5"
-        opacity="0.28" stroke-linecap="round"/>
-  <path d="M 212 520 Q 240 524 274 534" stroke="white" stroke-width="5"
-        opacity="0.28" stroke-linecap="round"/>
+  <!-- Root flares -->
+  <path d="M 138 352 Q 112 358 86 368"
+        stroke="white" stroke-width="5" fill="none"
+        opacity="0.32" stroke-linecap="round"/>
+  <path d="M 162 352 Q 188 358 214 368"
+        stroke="white" stroke-width="5" fill="none"
+        opacity="0.32" stroke-linecap="round"/>
 
-  <!-- ── Left branch system ─────────────────────── -->
-  <path d="M 196 338 Q 158 318 116 295"
-        stroke="white" stroke-width="13" opacity="0.34" stroke-linecap="round"/>
-  <path d="M 116 295 Q 78 274 46 248"
-        stroke="white" stroke-width="9"  opacity="0.28" stroke-linecap="round"/>
-  <path d="M 46 248 Q 22 228 16 200"
-        stroke="white" stroke-width="6"  opacity="0.20" stroke-linecap="round"/>
-  <path d="M 116 295 Q 92 268 88 234"
-        stroke="white" stroke-width="6"  opacity="0.20" stroke-linecap="round"/>
-  <path d="M 116 295 Q 110 272 118 242"
-        stroke="white" stroke-width="4"  opacity="0.16" stroke-linecap="round"/>
-
-  <!-- ── Right branch system ────────────────────── -->
-  <path d="M 204 332 Q 244 312 284 289"
-        stroke="white" stroke-width="13" opacity="0.34" stroke-linecap="round"/>
-  <path d="M 284 289 Q 324 265 354 240"
-        stroke="white" stroke-width="9"  opacity="0.28" stroke-linecap="round"/>
-  <path d="M 354 240 Q 376 220 384 194"
-        stroke="white" stroke-width="6"  opacity="0.20" stroke-linecap="round"/>
-  <path d="M 284 289 Q 308 262 308 228"
-        stroke="white" stroke-width="6"  opacity="0.20" stroke-linecap="round"/>
-
-  <!-- ── Central upper branch system ───────────── -->
-  <path d="M 200 322 Q 196 280 196 245"
-        stroke="white" stroke-width="10" opacity="0.30" stroke-linecap="round"/>
-  <path d="M 196 245 Q 180 205 184 168"
-        stroke="white" stroke-width="7"  opacity="0.24" stroke-linecap="round"/>
-  <path d="M 196 245 Q 218 208 222 172"
-        stroke="white" stroke-width="6"  opacity="0.22" stroke-linecap="round"/>
-  <path d="M 184 168 Q 170 136 176 106"
-        stroke="white" stroke-width="5"  opacity="0.18" stroke-linecap="round"/>
-  <path d="M 222 172 Q 238 140 232 110"
-        stroke="white" stroke-width="4"  opacity="0.16" stroke-linecap="round"/>
-
-  <!-- ── Canopy — outer organic boundary ───────── -->
-  <path d="M 200 305
-           Q 268 282 330 250
-           Q 385 220 396 170
-           Q 406 124 380 86
-           Q 356 50 314 44
-           Q 280 38 255 58
-           Q 238 18 210 6
-           Q 200 2 190 6
-           Q 162 18 145 58
-           Q 120 38 86 44
-           Q 44 50 20 86
-           Q -6 124 4 170
-           Q 15 220 70 250
-           Q 132 282 200 305 Z"
-        fill="white" opacity="0.10"/>
-
-  <!-- Canopy inner volume — layered ellipses -->
-  <ellipse cx="200" cy="168" rx="152" ry="110" fill="white" opacity="0.082"/>
-  <ellipse cx="170" cy="142" rx="124" ry="93"  fill="white" opacity="0.072"/>
-  <ellipse cx="230" cy="146" rx="120" ry="90"  fill="white" opacity="0.072"/>
-  <ellipse cx="200" cy="115" rx="136" ry="95"  fill="white" opacity="0.088"/>
-  <ellipse cx="174" cy="91"  rx="108" ry="80"  fill="white" opacity="0.078"/>
-  <ellipse cx="226" cy="95"  rx="104" ry="78"  fill="white" opacity="0.074"/>
-  <ellipse cx="200" cy="68"  rx="116" ry="75"  fill="white" opacity="0.090"/>
-  <ellipse cx="200" cy="38"  rx="84"  ry="54"  fill="white" opacity="0.080"/>
-
-  <!-- Peripheral leaf clusters at branch tips -->
-  <ellipse cx="18"  cy="198" rx="48" ry="36"  fill="white" opacity="0.078"/>
-  <ellipse cx="382" cy="192" rx="48" ry="36"  fill="white" opacity="0.078"/>
-  <ellipse cx="88"  cy="228" rx="38" ry="28"  fill="white" opacity="0.068"/>
-  <ellipse cx="308" cy="224" rx="38" ry="28"  fill="white" opacity="0.068"/>
+  <!-- Canopy — single solid silhouette of a large spreading oak.
+       Two main upper lobes suggest major branch clusters,
+       wide spread at mid-height, narrowing toward the trunk. -->
+  <path d="
+    M 150 260
+    Q 202 253 240 227
+    Q 272 205 276 168
+    Q 280 132 258 106
+    Q 246 89 230 73
+    Q 246 52 228 30
+    Q 210 11 186 18
+    Q 173  5 150  3
+    Q 127  5 114 18
+    Q  90 11  72 30
+    Q  54 52  70 73
+    Q  54 89  42 106
+    Q  20 132  24 168
+    Q  28 205  60 227
+    Q  98 253 150 260 Z
+  " opacity="0.22"/>
 
 </svg>
