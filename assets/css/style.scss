@@ -5,22 +5,25 @@
 
 /* Dragon blood tree identity + clean academic layout */
 :root {
-  --forest-dark:    #0f2119;
-  --forest-mid:     #17362a;
-  --forest-top:     #255541;
+  --forest-dark:    #0c2419;
+  --forest-mid:     #173b2a;
+  --forest-top:     #315b41;
 
-  --green:          #2f6f50;
-  --green-light:    #69a86f;
-  --green-bright:   #9ccf87;
+  --green:          #2d6848;
+  --green-light:    #77a765;
+  --green-bright:   #b7d48a;
   --green-pale:     rgba(47, 111, 80, .1);
 
   --blood:          #b3263a;
   --blood-dark:     #7d1d2c;
   --blood-pale:     rgba(179, 38, 58, .1);
-  --sky:            #d7ece7;
+  --timber:         #c7a66b;
+  --timber-dark:    #8a6b36;
+  --timber-pale:    rgba(199, 166, 107, .16);
+  --sky:            #ddebe3;
 
   --white:          #ffffff;
-  --page:           #f4f7f3;
+  --page:           #f1f5ef;
 
   --ink:            #1d1d1f;
   --ink-2:          #2c2c2e;
@@ -49,8 +52,8 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    linear-gradient(135deg, rgba(215,236,231,.62) 0%, transparent 32%),
-    radial-gradient(ellipse 62% 40% at 82% 10%, rgba(179,38,58,.08) 0%, transparent 55%),
+    linear-gradient(135deg, rgba(221,235,227,.68) 0%, transparent 34%),
+    radial-gradient(ellipse 62% 40% at 82% 10%, rgba(199,166,107,.14) 0%, transparent 56%),
     var(--page);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
@@ -82,12 +85,13 @@ header {
   top: 36px;
   height: fit-content;
   min-height: calc(100vh - 96px);
-  padding: 122px 30px 40px !important;
+  padding: 146px 30px 40px !important;
   overflow: hidden;
 
   background:
     url('/assets/images/tree.svg') bottom center / 96% no-repeat,
-    linear-gradient(170deg, rgba(179,38,58,.18) 0%, transparent 38%),
+    radial-gradient(circle at 50% 98%, rgba(199,166,107,.16) 0%, transparent 42%),
+    linear-gradient(170deg, rgba(199,166,107,.16) 0%, transparent 36%),
     linear-gradient(170deg, var(--forest-top) 0%, var(--forest-mid) 50%, var(--forest-dark) 100%) !important;
 
   border: 1px solid rgba(255,255,255,.06);
@@ -95,7 +99,7 @@ header {
   box-shadow: var(--shadow-lg);
 }
 
-/* Thin dragon-blood canopy line at top */
+/* Timber-style seal line */
 header::after {
   content: "";
   position: absolute;
@@ -103,9 +107,9 @@ header::after {
   height: 2px;
   background: linear-gradient(90deg,
     transparent,
-    var(--green-bright) 24%,
+    var(--timber) 20%,
     var(--blood) 50%,
-    var(--green-bright) 76%,
+    var(--timber) 80%,
     transparent);
   border-radius: var(--radius) var(--radius) 0 0;
 }
@@ -113,19 +117,19 @@ header::after {
 header::before {
   content: "";
   position: absolute;
-  top: 30px;
+  top: 28px;
   left: 50%;
-  width: 72px;
-  height: 72px;
+  width: 92px;
+  height: 92px;
   transform: translateX(-50%);
   background:
-    url('/assets/images/dragon-blood-tree-icon.svg') center / 64px 64px no-repeat,
-    rgba(255,255,255,.94);
-  border: 1px solid rgba(255,255,255,.68);
-  border-radius: 8px;
+    url('/assets/images/dragon-blood-tree-icon.svg') center / 82px 82px no-repeat,
+    var(--timber);
+  border: 3px solid rgba(243,239,227,.92);
+  border-radius: 50%;
   box-shadow:
-    0 12px 32px rgba(0,0,0,.24),
-    0 0 0 5px rgba(255,255,255,.08);
+    0 14px 34px rgba(0,0,0,.3),
+    0 0 0 6px rgba(199,166,107,.18);
 }
 
 /* Profile photo */
@@ -137,9 +141,9 @@ header img {
   margin: 0 auto 24px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2.5px solid rgba(156, 207, 135, .62);
+  border: 2.5px solid rgba(199, 166, 107, .76);
   box-shadow:
-    0 0 0 5px rgba(179, 38, 58, .1),
+    0 0 0 5px rgba(199, 166, 107, .14),
     0 18px 42px rgba(0,0,0,.38);
   transition: box-shadow .28s ease, border-color .28s ease;
 }
@@ -177,7 +181,7 @@ header p {
 header a {
   color: var(--green-bright) !important;
   text-decoration: none;
-  border-bottom: 1px solid rgba(156, 207, 135, .34);
+  border-bottom: 1px solid rgba(199, 166, 107, .42);
   transition: color .15s, border-color .15s;
 }
 header a:hover {
@@ -193,7 +197,7 @@ header ul {
   margin: 26px 0 0;
   display: grid;
   gap: 8px;
-  border-top: 1px solid rgba(255,255,255,.1);
+  border-top: 1px solid rgba(199,166,107,.22);
 }
 
 header ul li { margin: 0; }
@@ -205,8 +209,8 @@ header ul li a {
   justify-content: center;
   padding: 8px 14px;
   color: rgba(255,255,255,.85) !important;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(199,166,107,.1);
+  border: 1px solid rgba(199,166,107,.22);
   border-radius: var(--radius-sm);
   font-size: .82rem;
   font-weight: 500;
@@ -218,8 +222,8 @@ header ul li a {
 }
 
 header ul li a:hover {
-  background: rgba(179, 38, 58, .18);
-  border-color: rgba(156, 207, 135, .42);
+  background: rgba(199, 166, 107, .18);
+  border-color: rgba(199, 166, 107, .5);
   color: var(--green-bright) !important;
   transform: translateY(-1px);
   text-decoration: none !important;
@@ -249,7 +253,7 @@ section::before {
   background: linear-gradient(90deg,
     transparent,
     var(--green) 18%,
-    var(--blood) 50%,
+    var(--timber) 50%,
     var(--green) 82%,
     transparent);
   border-radius: var(--radius) var(--radius) 0 0;
@@ -275,7 +279,7 @@ section h1::after {
   height: 3px;
   margin-top: 22px;
   border-radius: 100px;
-  background: linear-gradient(90deg, var(--green), var(--blood));
+  background: linear-gradient(90deg, var(--green), var(--timber), var(--blood));
 }
 
 section h2 {
@@ -348,8 +352,8 @@ section h4 {
   margin-top: 17px;
   border-radius: 50%;
   background: var(--white);
-  border: 3px solid var(--green-light);
-  box-shadow: 0 0 0 5px var(--green-pale);
+  border: 3px solid var(--timber);
+  box-shadow: 0 0 0 5px var(--timber-pale);
 }
 
 .timeline-item:not(:last-child)::before {
@@ -359,13 +363,13 @@ section h4 {
   bottom: -18px;
   left: 124px;
   width: 1px;
-  background: linear-gradient(180deg, rgba(47,111,80,.48), rgba(179,38,58,.1));
+  background: linear-gradient(180deg, rgba(199,166,107,.58), rgba(45,104,72,.12));
 }
 
 .timeline-card {
   padding: 13px 16px;
   background: linear-gradient(180deg, rgba(255,255,255,.76), rgba(244,247,243,.88));
-  border: 1px solid rgba(0,0,0,.08);
+  border: 1px solid rgba(45,104,72,.12);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
 }
@@ -380,7 +384,7 @@ section h4 {
 .timeline-title + .timeline-title {
   margin-top: 7px;
   padding-top: 7px;
-  border-top: 1px solid rgba(47,111,80,.16);
+  border-top: 1px solid rgba(199,166,107,.2);
 }
 
 .timeline-meta {
@@ -447,7 +451,7 @@ pre {
   color: var(--ink-2);
   background: var(--page);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--blood);
+  border-left: 3px solid var(--timber);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
 }
@@ -466,7 +470,7 @@ blockquote {
   color: var(--muted);
   background: var(--page);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--blood);
+  border-left: 3px solid var(--timber);
   border-radius: var(--radius-sm);
   font-size: .88rem;
   font-style: normal;
@@ -541,7 +545,7 @@ section > ol > li::before {
   font-size: .76rem;
   font-weight: 700;
   color: var(--green);
-  background: linear-gradient(135deg, var(--green-pale), var(--blood-pale));
+  background: linear-gradient(135deg, var(--green-pale), var(--timber-pale));
   border-radius: 8px;
 }
 
@@ -593,13 +597,14 @@ footer { display: none; }
   }
 
   header::before {
-    top: 24px;
-    right: 24px;
+    top: 22px;
+    right: 22px;
     left: auto;
-    width: 46px;
-    height: 46px;
+    width: 58px;
+    height: 58px;
     transform: none;
-    background-size: 40px 40px;
+    background-size: 50px 50px;
+    border-width: 2px;
   }
 
   header img {
