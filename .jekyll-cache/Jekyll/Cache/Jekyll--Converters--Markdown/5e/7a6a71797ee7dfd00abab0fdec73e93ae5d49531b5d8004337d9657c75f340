@@ -1,18 +1,17 @@
-# Feng BAO 鲍峰
+I"l <h1 id="feng-bao-鲍峰">Feng BAO 鲍峰</h1>
 
-I am a Principal Investigator at the [College for Future Information Technology](https://www.fudan.edu.cn/en/), [Fudan University](https://www.fudan.edu.cn/en/), Shanghai. My research develops statistical learning and AI methods to answer fundamental biological questions and advance medicine — spanning self-supervised representation learning, multi-modal information fusion, causal inference in complex biological systems, and deep generative models for spatial omics.
+<p>I am a Principal Investigator at the <a href="https://www.fudan.edu.cn/en/">College for Future Information Technology</a>, <a href="https://www.fudan.edu.cn/en/">Fudan University</a>, Shanghai. My research develops statistical learning and AI methods to answer fundamental biological questions and advance medicine — spanning self-supervised representation learning, multi-modal information fusion, causal inference in complex biological systems, and deep generative models for spatial omics.</p>
 
-**We are looking for highly motivated PhD students and postdocs** with backgrounds in machine learning, medicine, clinical research, or biology.
+<p><strong>We are looking for highly motivated PhD students and postdocs</strong> with backgrounds in machine learning, medicine, clinical research, or biology.</p>
 
-Previously, I was a Postdoc (2019–2024) at [Altschuler and Wu Lab](https://www.altschulerwulab.org/), University of California, San Francisco, and a visiting scholar at [Dana-Farber Cancer Institute](https://www.dana-farber.org/), Harvard Medical School (2018–2019). I obtained my PhD from [Tsinghua University](https://www.tsinghua.edu.cn/en/) (2019), advised by Academician Qionghai Dai, and my B.Eng. from Xidian University (2014).
+<p>Previously, I was a Postdoc (2019–2024) at <a href="https://www.altschulerwulab.org/">Altschuler and Wu Lab</a>, University of California, San Francisco, and a visiting scholar at <a href="https://www.dana-farber.org/">Dana-Farber Cancer Institute</a>, Harvard Medical School (2018–2019). I obtained my PhD from <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a> (2019), advised by Academician Qionghai Dai, and my B.Eng. from Xidian University (2014).</p>
 
-```
-Contact: fbao@fudan.edu.cn
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Contact: fbao@fudan.edu.cn
+</code></pre></div></div>
 
----
+<hr />
 
-## Career Path
+<h2 id="career-path">Career Path</h2>
 
 <div class="timeline career-timeline">
   <div class="timeline-item">
@@ -60,9 +59,9 @@ Contact: fbao@fudan.edu.cn
   </div>
 </div>
 
----
+<hr />
 
-## Awards & Honors
+<h2 id="awards--honors">Awards &amp; Honors</h2>
 
 <div class="timeline awards-timeline">
   <div class="timeline-item">
@@ -108,60 +107,80 @@ Contact: fbao@fudan.edu.cn
   </div>
 </div>
 
----
+<hr />
 
-## Research Interests
+<h2 id="research-interests">Research Interests</h2>
 
-- **AI Methods**
-  1. Self-supervised representation learning for biological data
-  2. Multi-modal information fusion (transcriptomics, proteomics, spatial data, imaging)
-  3. Causal inference in gene regulatory networks and drug perturbation experiments
+<ul>
+  <li><strong>AI Methods</strong>
+    <ol>
+      <li>Self-supervised representation learning for biological data</li>
+      <li>Multi-modal information fusion (transcriptomics, proteomics, spatial data, imaging)</li>
+      <li>Causal inference in gene regulatory networks and drug perturbation experiments</li>
+    </ol>
+  </li>
+  <li><strong>Biomedical Applications</strong>
+    <ol>
+      <li>Quantify interactions across multiple omics types</li>
+      <li>Improve throughput of spatially resolved transcriptomics statistically</li>
+      <li>Causal drug target discovery and transferable prediction of small-molecule function</li>
+    </ol>
+  </li>
+</ul>
 
-- **Biomedical Applications**
-  1. Quantify interactions across multiple omics types
-  2. Improve throughput of spatially resolved transcriptomics statistically
-  3. Causal drug target discovery and transferable prediction of small-molecule function
+<p><a href="https://scholar.google.com/citations?user=I0mcA3MAAAAJ&amp;hl=en">Full publication list on Google Scholar</a></p>
 
-[Full publication list on Google Scholar](https://scholar.google.com/citations?user=I0mcA3MAAAAJ&hl=en)
+<hr />
 
----
+<h2 id="selected-publications">Selected Publications</h2>
 
-## Selected Publications
+<ol>
+  <li>
+    <p><strong>Molecular and cellular cartography of the laboratory mouse using whole-body sections.</strong><br />
+<em>Cell</em>. 2026. <a href="https://doi.org/10.1016/j.cell.2026.03.006">https://doi.org/10.1016/j.cell.2026.03.006</a></p>
+  </li>
+  <li>
+    <p><strong>Transitive prediction of small molecule function through alignment of high-content screening resources.</strong><br />
+<em>Nature Biotechnology</em>. 2025. <a href="https://doi.org/10.1038/s41587-025-02729-2">https://doi.org/10.1038/s41587-025-02729-2</a></p>
+  </li>
+  <li>
+    <p><strong>Tissue characterization at an enhanced resolution across spatial omics platforms with deep generative model.</strong><br />
+<em>Nature Communications</em>. 2024, 15(1): 6541.</p>
+  </li>
+  <li>
+    <p><strong>Integrative spatial analysis of cell morphologies and transcriptional states with MUSE.</strong><br />
+<em>Nature Biotechnology</em>. 2022, 1–10.</p>
+  </li>
+  <li>
+    <p><strong>Scalable analysis of cell type composition from single-cell transcriptomics using deep recurrent learning.</strong><br />
+<em>Nature Methods</em>. 2019, 16: 311–314.</p>
+  </li>
+</ol>
 
-1. **Molecular and cellular cartography of the laboratory mouse using whole-body sections.**  
-   *Cell*. 2026. [https://doi.org/10.1016/j.cell.2026.03.006](https://doi.org/10.1016/j.cell.2026.03.006)
+<hr />
 
-2. **Transitive prediction of small molecule function through alignment of high-content screening resources.**  
-   *Nature Biotechnology*. 2025. [https://doi.org/10.1038/s41587-025-02729-2](https://doi.org/10.1038/s41587-025-02729-2)
+<h2 id="academic-service">Academic Service</h2>
 
-3. **Tissue characterization at an enhanced resolution across spatial omics platforms with deep generative model.**  
-   *Nature Communications*. 2024, 15(1): 6541.
+<p>Reviewer for:</p>
+<ul>
+  <li>Cell · Nature Biotechnology · Nature Biomedical Engineering · Nature Communications</li>
+  <li>Cell Systems · Genome Biology · Briefings in Bioinformatics</li>
+  <li>IEEE Transactions on Neural Networks and Learning Systems · IEEE Transactions on Fuzzy Systems</li>
+  <li>IEEE Journal of Selected Topics in Signal Processing</li>
+</ul>
 
-4. **Integrative spatial analysis of cell morphologies and transcriptional states with MUSE.**  
-   *Nature Biotechnology*. 2022, 1–10.
+<hr />
 
-5. **Scalable analysis of cell type composition from single-cell transcriptomics using deep recurrent learning.**  
-   *Nature Methods*. 2019, 16: 311–314.
-
----
-
-## Academic Service
-
-Reviewer for:
-- Cell · Nature Biotechnology · Nature Biomedical Engineering · Nature Communications
-- Cell Systems · Genome Biology · Briefings in Bioinformatics
-- IEEE Transactions on Neural Networks and Learning Systems · IEEE Transactions on Fuzzy Systems
-- IEEE Journal of Selected Topics in Signal Processing
-
----
-
-_Last update: April 2026_
+<p><em>Last update: April 2026</em></p>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102911962-1"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-102911962-1"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'UA-102911962-1');
 </script>
+
+:ET

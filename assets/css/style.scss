@@ -3,43 +3,39 @@
 
 @import "{{ site.theme }}";
 
-/* ────────────────────────────────────────────────
-   Palette  ·  Deep Forest + Apple Clean
-   ──────────────────────────────────────────────── */
+/* Dragon blood tree identity + clean academic layout */
 :root {
-  /* Forest sidebar */
-  --forest-dark:    #111e16;
-  --forest-mid:     #182a1e;
-  --forest-top:     #223828;
+  --forest-dark:    #0f2119;
+  --forest-mid:     #17362a;
+  --forest-top:     #255541;
 
-  /* Green accents */
-  --green:          #2d6a4f;
-  --green-light:    #52b788;
-  --green-bright:   #74c69d;
-  --green-pale:     rgba(45, 106, 79, .09);
+  --green:          #2f6f50;
+  --green-light:    #69a86f;
+  --green-bright:   #9ccf87;
+  --green-pale:     rgba(47, 111, 80, .1);
 
-  /* Content & page */
+  --blood:          #b3263a;
+  --blood-dark:     #7d1d2c;
+  --blood-pale:     rgba(179, 38, 58, .1);
+  --sky:            #d7ece7;
+
   --white:          #ffffff;
-  --page:           #f5f7f4;
+  --page:           #f4f7f3;
 
-  /* Typography — Apple palette */
   --ink:            #1d1d1f;
   --ink-2:          #2c2c2e;
   --muted:          #6e6e73;
   --muted-light:    #aeaeb2;
 
-  /* Borders — Apple's near-invisible separators */
   --line:           #d2d2d7;
   --line-strong:    #c7c7cc;
 
-  /* Shadows — Apple: precise, barely-there */
   --shadow-sm:  0 1px 4px rgba(0,0,0,.04), 0 4px 12px rgba(0,0,0,.06);
   --shadow:     0 2px 8px rgba(0,0,0,.04), 0 12px 40px rgba(0,0,0,.08);
   --shadow-lg:  0 4px 16px rgba(0,0,0,.06), 0 24px 64px rgba(0,0,0,.12);
 
-  /* Geometry — Apple: generous rounding */
-  --radius:     18px;
-  --radius-sm:  10px;
+  --radius:     8px;
+  --radius-sm:  8px;
 }
 
 /* ── Reset ────────────────────────────────────── */
@@ -53,10 +49,10 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(ellipse 60% 40% at 80% 10%, rgba(45,106,79,.05) 0%, transparent 55%),
+    linear-gradient(135deg, rgba(215,236,231,.62) 0%, transparent 32%),
+    radial-gradient(ellipse 62% 40% at 82% 10%, rgba(179,38,58,.08) 0%, transparent 55%),
     var(--page);
   color: var(--ink);
-  /* Apple's system font stack — SF Pro on Apple, Inter everywhere else */
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.72;
@@ -86,12 +82,12 @@ header {
   top: 36px;
   height: fit-content;
   min-height: calc(100vh - 96px);
-  padding: 40px 30px !important;
+  padding: 122px 30px 40px !important;
   overflow: hidden;
 
-  /* Forest gradient + big tree silhouette */
   background:
     url('/assets/images/tree.svg') bottom center / 96% no-repeat,
+    linear-gradient(170deg, rgba(179,38,58,.18) 0%, transparent 38%),
     linear-gradient(170deg, var(--forest-top) 0%, var(--forest-mid) 50%, var(--forest-dark) 100%) !important;
 
   border: 1px solid rgba(255,255,255,.06);
@@ -99,7 +95,7 @@ header {
   box-shadow: var(--shadow-lg);
 }
 
-/* Thin green shimmer line at top */
+/* Thin dragon-blood canopy line at top */
 header::after {
   content: "";
   position: absolute;
@@ -107,15 +103,30 @@ header::after {
   height: 2px;
   background: linear-gradient(90deg,
     transparent,
-    var(--green-light) 30%,
-    var(--green-bright) 50%,
-    var(--green-light) 70%,
+    var(--green-bright) 24%,
+    var(--blood) 50%,
+    var(--green-bright) 76%,
     transparent);
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-/* No pseudo monogram — tree IS the background element */
-header::before { content: none; }
+header::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  transform: translateX(-50%);
+  background:
+    url('/assets/images/dragon-blood-tree-icon.svg') center / 64px 64px no-repeat,
+    rgba(255,255,255,.94);
+  border: 1px solid rgba(255,255,255,.68);
+  border-radius: 8px;
+  box-shadow:
+    0 12px 32px rgba(0,0,0,.24),
+    0 0 0 5px rgba(255,255,255,.08);
+}
 
 /* Profile photo */
 header img {
@@ -123,20 +134,20 @@ header img {
   display: block;
   width: 116px !important;
   height: 116px !important;
-  margin: 4px auto 24px;
+  margin: 0 auto 24px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2.5px solid rgba(116, 198, 157, .55);
+  border: 2.5px solid rgba(156, 207, 135, .62);
   box-shadow:
-    0 0 0 5px rgba(82, 183, 136, .1),
+    0 0 0 5px rgba(179, 38, 58, .1),
     0 18px 42px rgba(0,0,0,.38);
   transition: box-shadow .28s ease, border-color .28s ease;
 }
 
 header img:hover {
-  border-color: var(--green-bright);
+  border-color: var(--blood);
   box-shadow:
-    0 0 0 5px rgba(116, 198, 157, .18),
+    0 0 0 5px rgba(179, 38, 58, .18),
     0 18px 42px rgba(0,0,0,.44);
 }
 
@@ -149,7 +160,7 @@ header h1 {
   font-weight: 700;
   line-height: 1.26;
   text-align: center;
-  letter-spacing: -.01em;
+  letter-spacing: 0;
 }
 
 /* Institution / description */
@@ -166,7 +177,7 @@ header p {
 header a {
   color: var(--green-bright) !important;
   text-decoration: none;
-  border-bottom: 1px solid rgba(116, 198, 157, .28);
+  border-bottom: 1px solid rgba(156, 207, 135, .34);
   transition: color .15s, border-color .15s;
 }
 header a:hover {
@@ -194,13 +205,12 @@ header ul li a {
   justify-content: center;
   padding: 8px 14px;
   color: rgba(255,255,255,.85) !important;
-  /* Apple-style translucent / frosted button */
   background: rgba(255,255,255,.07);
   border: 1px solid rgba(255,255,255,.12);
   border-radius: var(--radius-sm);
   font-size: .82rem;
   font-weight: 500;
-  letter-spacing: .015em;
+  letter-spacing: 0;
   text-align: center;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -208,8 +218,8 @@ header ul li a {
 }
 
 header ul li a:hover {
-  background: rgba(116, 198, 157, .16);
-  border-color: rgba(116, 198, 157, .38);
+  background: rgba(179, 38, 58, .18);
+  border-color: rgba(156, 207, 135, .42);
   color: var(--green-bright) !important;
   transform: translateY(-1px);
   text-decoration: none !important;
@@ -222,7 +232,6 @@ section {
   width: auto !important;
   max-width: 940px;
   float: none !important;
-  /* Apple: very generous padding */
   padding: 70px 80px !important;
   position: relative;
   background: var(--white);
@@ -239,28 +248,26 @@ section::before {
   height: 2px;
   background: linear-gradient(90deg,
     transparent,
-    var(--green) 20%,
-    var(--green-light) 50%,
-    var(--green) 80%,
+    var(--green) 18%,
+    var(--blood) 50%,
+    var(--green) 82%,
     transparent);
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
 /* ── Headings ─────────────────────────────────── */
-/* Apple: all headings use the system/Inter sans-serif */
 
 section h1 {
   margin: 0 0 20px;
   max-width: 820px;
   color: var(--ink);
-  /* Apple Large Title style */
   font-size: 2.8rem;
   font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -.03em;
+  letter-spacing: 0;
 }
 
-/* Green underline accent — leaf-width */
+/* Dragon blood tree underline accent */
 section h1::after {
   content: "";
   display: block;
@@ -268,7 +275,7 @@ section h1::after {
   height: 3px;
   margin-top: 22px;
   border-radius: 100px;
-  background: linear-gradient(90deg, var(--green), var(--green-light));
+  background: linear-gradient(90deg, var(--green), var(--blood));
 }
 
 section h2 {
@@ -278,7 +285,7 @@ section h2 {
   /* Apple Section Title */
   font-size: 1.28rem;
   font-weight: 700;
-  letter-spacing: -.015em;
+  letter-spacing: 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -289,9 +296,8 @@ section h2::before {
   height: 14px;
   margin-right: 10px;
   vertical-align: -.08em;
-  border-radius: 50%;
-  background: var(--green);
-  opacity: .75;
+  background: url('/assets/images/dragon-blood-tree-icon.svg') center / contain no-repeat;
+  opacity: .9;
 }
 
 section h3 {
@@ -299,7 +305,7 @@ section h3 {
   color: var(--ink-2);
   font-size: 1.06rem;
   font-weight: 600;
-  letter-spacing: -.012em;
+  letter-spacing: 0;
 }
 
 section h4 {
@@ -307,7 +313,102 @@ section h4 {
   font-size: .95rem;
   font-weight: 500;
   font-style: normal;
-  letter-spacing: -.005em;
+  letter-spacing: 0;
+}
+
+/* ── Timelines ────────────────────────────────── */
+.timeline {
+  margin: 24px 0 6px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 104px 20px minmax(0, 1fr);
+  gap: 14px;
+  position: relative;
+}
+
+.timeline-item + .timeline-item {
+  margin-top: 18px;
+}
+
+.timeline-year {
+  padding-top: 13px;
+  color: var(--blood-dark);
+  font-size: .78rem;
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.timeline-dot {
+  position: relative;
+  width: 13px;
+  height: 13px;
+  margin-top: 17px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--green-light);
+  box-shadow: 0 0 0 5px var(--green-pale);
+}
+
+.timeline-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 31px;
+  bottom: -18px;
+  left: 124px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(47,111,80,.48), rgba(179,38,58,.1));
+}
+
+.timeline-card {
+  padding: 13px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,.76), rgba(244,247,243,.88));
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-title {
+  color: var(--ink-2);
+  font-size: .96rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.timeline-title + .timeline-title {
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(47,111,80,.16);
+}
+
+.timeline-meta {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+.timeline-note {
+  margin-top: 5px;
+  color: var(--green);
+  font-size: .84rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.awards-timeline .timeline-item {
+  grid-template-columns: 70px 20px minmax(0, 1fr);
+}
+
+.awards-timeline .timeline-dot {
+  border-color: var(--blood);
+  box-shadow: 0 0 0 5px var(--blood-pale);
+}
+
+.awards-timeline .timeline-item:not(:last-child)::before {
+  left: 90px;
 }
 
 /* ── Body ─────────────────────────────────────── */
@@ -319,13 +420,13 @@ p {
 a {
   color: var(--green);
   text-decoration: none;
-  border-bottom: 1px solid rgba(45,106,79,.26);
+  border-bottom: 1px solid rgba(47,111,80,.28);
   transition: color .15s, border-color .15s;
 }
 
 a:hover {
-  color: var(--forest-mid);
-  border-bottom-color: rgba(24,42,30,.35);
+  color: var(--blood-dark);
+  border-bottom-color: rgba(179,38,58,.36);
 }
 
 strong {
@@ -346,7 +447,7 @@ pre {
   color: var(--ink-2);
   background: var(--page);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--green-light);
+  border-left: 3px solid var(--blood);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
 }
@@ -365,7 +466,7 @@ blockquote {
   color: var(--muted);
   background: var(--page);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--green-light);
+  border-left: 3px solid var(--blood);
   border-radius: var(--radius-sm);
   font-size: .88rem;
   font-style: normal;
@@ -391,7 +492,7 @@ section > ul > li {
   padding-left: 24px;
 }
 
-/* Small leaf / filled diamond bullet */
+/* Small dragon-blood leaf bullet */
 section > ul > li::before {
   content: "";
   position: absolute;
@@ -401,7 +502,7 @@ section > ul > li::before {
   height: 8px;
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
-  background: var(--green-light);
+  background: var(--blood);
   opacity: .85;
 }
 
@@ -440,8 +541,8 @@ section > ol > li::before {
   font-size: .76rem;
   font-weight: 700;
   color: var(--green);
-  background: var(--green-pale);
-  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-pale), var(--blood-pale));
+  border-radius: 8px;
 }
 
 /* ── Dividers ─────────────────────────────────── */
@@ -473,7 +574,8 @@ footer { display: none; }
   }
 
   .wrapper {
-    width: min(100% - 24px, 780px) !important;
+    width: calc(100% - 24px) !important;
+    max-width: 780px !important;
     padding: 16px 0 !important;
     display: block;
   }
@@ -488,6 +590,16 @@ footer { display: none; }
     grid-template-columns: 80px minmax(0, 1fr);
     gap: 10px 18px;
     align-items: center;
+  }
+
+  header::before {
+    top: 24px;
+    right: 24px;
+    left: auto;
+    width: 46px;
+    height: 46px;
+    transform: none;
+    background-size: 40px 40px;
   }
 
   header img {
@@ -513,8 +625,71 @@ footer { display: none; }
 
   section h1 {
     font-size: 2.1rem;
-    letter-spacing: -.025em;
+    letter-spacing: 0;
   }
 
   section h2 { margin-top: 44px; }
+
+  .timeline-item,
+  .awards-timeline .timeline-item {
+    display: block;
+    padding-left: 30px;
+  }
+
+  .timeline-year {
+    padding-top: 0;
+    margin-bottom: 7px;
+    font-size: .74rem;
+    text-align: left;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    margin-top: 0;
+  }
+
+  .timeline-card {
+    padding: 12px 13px;
+  }
+
+  .timeline-item:not(:last-child)::before,
+  .awards-timeline .timeline-item:not(:last-child)::before {
+    top: 20px;
+    bottom: -18px;
+    left: 6px;
+  }
+}
+
+@media (max-width: 520px) {
+  .wrapper {
+    width: calc(100% - 20px) !important;
+  }
+
+  section {
+    padding: 34px 18px 30px !important;
+  }
+
+  .timeline {
+    margin-top: 18px;
+  }
+
+  .timeline-item,
+  .awards-timeline .timeline-item {
+    padding-left: 24px;
+  }
+
+  .timeline-card {
+    padding: 11px 12px;
+  }
+
+  .timeline-title {
+    font-size: .92rem;
+    line-height: 1.42;
+  }
+
+  .timeline-meta {
+    font-size: .86rem;
+  }
 }
