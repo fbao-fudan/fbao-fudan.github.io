@@ -85,11 +85,10 @@ header {
   top: 36px;
   height: fit-content;
   min-height: calc(100vh - 96px);
-  padding: 146px 30px 40px !important;
+  padding: 40px 30px !important;
   overflow: hidden;
 
   background:
-    url('/assets/images/tree.svg') bottom center / 96% no-repeat,
     radial-gradient(circle at 50% 98%, rgba(199,166,107,.16) 0%, transparent 42%),
     linear-gradient(170deg, rgba(199,166,107,.16) 0%, transparent 36%),
     linear-gradient(170deg, var(--forest-top) 0%, var(--forest-mid) 50%, var(--forest-dark) 100%) !important;
@@ -117,19 +116,13 @@ header::after {
 header::before {
   content: "";
   position: absolute;
-  top: 28px;
-  left: 50%;
-  width: 92px;
-  height: 92px;
-  transform: translateX(-50%);
-  background:
-    url('/assets/images/dragon-blood-tree-icon.svg') center / 82px 82px no-repeat,
-    var(--timber);
-  border: 3px solid rgba(243,239,227,.92);
-  border-radius: 50%;
-  box-shadow:
-    0 14px 34px rgba(0,0,0,.3),
-    0 0 0 6px rgba(199,166,107,.18);
+  left: -10%;
+  right: -10%;
+  bottom: -12px;
+  height: 48%;
+  background: url('/assets/images/tree.svg') bottom center / contain no-repeat;
+  opacity: .72;
+  pointer-events: none;
 }
 
 /* Profile photo */
@@ -597,14 +590,15 @@ footer { display: none; }
   }
 
   header::before {
-    top: 22px;
-    right: 22px;
+    top: auto;
+    right: -8%;
     left: auto;
-    width: 58px;
-    height: 58px;
+    bottom: 8px;
+    width: 78%;
+    height: 96%;
     transform: none;
-    background-size: 50px 50px;
-    border-width: 2px;
+    background-size: contain;
+    opacity: .46;
   }
 
   header img {
