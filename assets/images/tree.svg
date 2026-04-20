@@ -1,103 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" fill="none">
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520">
   <!--
     Dragon Blood Tree (Dracaena cinnabari) silhouette.
-    Characteristic flat umbrella crown, forking branch
-    candelabra, and stout trunk — endemic to Socotra Island.
+    Wide, flat umbrella canopy on a short candelabra trunk —
+    endemic to Socotra Island.
+
+    All shapes share a single <g opacity> so overlapping fills
+    merge into one clean, joint-free silhouette.
   -->
 
-  <!-- ══ TRUNK ══════════════════════════════════ -->
-  <path d="M 185 460 L 187 308 L 213 306 L 215 460 Z"
-        fill="white" opacity="0.55"/>
+  <g fill="white" opacity="0.24">
 
-  <!-- Root flares -->
-  <path d="M 187 452 Q 160 460 128 470"
-        stroke="white" stroke-width="5" fill="none"
-        opacity="0.28" stroke-linecap="round"/>
-  <path d="M 213 452 Q 240 460 272 470"
-        stroke="white" stroke-width="5" fill="none"
-        opacity="0.28" stroke-linecap="round"/>
+    <!-- ══════════════════════════════════════════════════════
+         CANOPY — the dominant shape.
+         Very wide (364 px) and relatively flat (210 px tall),
+         giving the characteristic mushroom-parasol profile.
+    ═══════════════════════════════════════════════════════════ -->
+    <path d="
+      M 200 32
+      C 294 32 372 90 386 162
+      C 396 206 374 238 336 243
+      C 291 249 247 252 200 252
+      C 153 252 109 249 64 243
+      C 26 238 4 206 14 162
+      C 28 90 106 32 200 32 Z
+    "/>
 
-  <!-- ══ BRANCH CANDELABRA ═══════════════════════
-       Trunk → main fork → secondary forks → tertiary →
-       tips that disappear into the flat canopy dome.
-  ════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════════════════
+         TRUNK — short, stout column
+    ═══════════════════════════════════════════════════════════ -->
+    <path d="M 189 336 L 211 336 L 213 468 L 187 468 Z"/>
 
-  <!-- Main fork (trunk splits into 2) -->
-  <path d="M 198 308 Q 174 288 148 265"
-        stroke="white" stroke-width="15" opacity="0.48"
-        fill="none" stroke-linecap="round"/>
-  <path d="M 202 306 Q 228 286 254 263"
-        stroke="white" stroke-width="15" opacity="0.48"
-        fill="none" stroke-linecap="round"/>
+    <!-- Root flares -->
+    <path d="M 188 455 Q 162 466 144 476 L 140 468 Q 158 460 187 450 Z"/>
+    <path d="M 212 455 Q 238 466 256 476 L 260 468 Q 242 460 213 450 Z"/>
 
-  <!-- Left secondary fork -->
-  <path d="M 148 265 Q 118 244  92 220"
-        stroke="white" stroke-width="10" opacity="0.40"
-        fill="none" stroke-linecap="round"/>
-  <path d="M 148 265 Q 148 238 154 212"
-        stroke="white" stroke-width="10" opacity="0.40"
-        fill="none" stroke-linecap="round"/>
+    <!-- ══════════════════════════════════════════════════════
+         LEVEL-1 BRANCHES — trunk forks into two main boughs
+         Each drawn as a tapered filled quadrilateral.
+    ═══════════════════════════════════════════════════════════ -->
 
-  <!-- Right secondary fork -->
-  <path d="M 254 263 Q 252 236 246 210"
-        stroke="white" stroke-width="10" opacity="0.40"
-        fill="none" stroke-linecap="round"/>
-  <path d="M 254 263 Q 282 242 308 218"
-        stroke="white" stroke-width="10" opacity="0.40"
-        fill="none" stroke-linecap="round"/>
+    <!-- Left bough: trunk (200, 342) → canopy base (124, 250) -->
+    <path d="M 186 362 L 202 346 L 132 248 L 115 256 Z"/>
 
-  <!-- Tertiary — far left -->
-  <path d="M  92 220 Q  68 200  52 174"
-        stroke="white" stroke-width="6" opacity="0.32"
-        fill="none" stroke-linecap="round"/>
-  <path d="M  92 220 Q  96 194 108 170"
-        stroke="white" stroke-width="6" opacity="0.32"
-        fill="none" stroke-linecap="round"/>
+    <!-- Right bough: trunk (200, 342) → canopy base (276, 250) -->
+    <path d="M 214 362 L 198 346 L 268 248 L 285 256 Z"/>
 
-  <!-- Tertiary — centre-left -->
-  <path d="M 154 212 Q 140 186 144 160"
-        stroke="white" stroke-width="6" opacity="0.32"
-        fill="none" stroke-linecap="round"/>
-  <path d="M 154 212 Q 168 188 174 162"
-        stroke="white" stroke-width="6" opacity="0.32"
-        fill="none" stroke-linecap="round"/>
+    <!-- ══════════════════════════════════════════════════════
+         LEVEL-2 BRANCHES — each bough forks again near canopy
+    ═══════════════════════════════════════════════════════════ -->
 
-  <!-- Tertiary — centre-right -->
-  <path d="M 246 210 Q 228 186 226 160"
-        stroke="white" stroke-width="6" opacity="0.32"
-        fill="none" stroke-linecap="round"/>
-  <path d="M 246 210 Q 256 186 258 160"
-        stroke="white" stroke-width="6" opacity="0.32"
-        fill="none" stroke-linecap="round"/>
+    <!-- Left bough forks at ~(158, 302) -->
+    <!-- Far-left sub → (62, 246) -->
+    <path d="M 148 308 L 164 296 L 72 245 L 56 253 Z"/>
+    <!-- Centre-left sub → (172, 244) -->
+    <path d="M 164 296 L 158 285 L 172 243 L 180 252 Z"/>
 
-  <!-- Tertiary — far right -->
-  <path d="M 308 218 Q 304 192 292 168"
-        stroke="white" stroke-width="6" opacity="0.32"
-        fill="none" stroke-linecap="round"/>
-  <path d="M 308 218 Q 330 198 348 172"
-        stroke="white" stroke-width="6" opacity="0.32"
-        fill="none" stroke-linecap="round"/>
+    <!-- Right bough forks at ~(242, 302) -->
+    <!-- Centre-right sub → (228, 244) -->
+    <path d="M 236 296 L 242 285 L 228 243 L 220 252 Z"/>
+    <!-- Far-right sub → (338, 246) -->
+    <path d="M 252 308 L 236 296 L 328 245 L 344 253 Z"/>
 
-  <!-- ══ CROWN — wide flat umbrella dome ════════
-       Much wider than tall: ~370 px wide, ~175 px tall.
-       The defining shape of a dragon blood tree.
-  ════════════════════════════════════════════════ -->
-  <path d="
-    M 200 208
-
-    C 228 207 264 200 298 186
-    C 332 172 360 150 374 122
-    C 386  96 380  68 362  50
-    C 344  32 318  20 290  16
-    C 270  12 250   6 232   6
-    C 220   4 210   2 200   2
-    C 190   2 180   4 168   6
-    C 150   6 130  12 110  16
-    C  82  20  56  32  38  50
-    C  20  68  14  96  26 122
-    C  40 150  68 172 102 186
-    C 136 200 172 207 200 208 Z
-  " fill="white" opacity="0.20"/>
-
+  </g>
 </svg>
