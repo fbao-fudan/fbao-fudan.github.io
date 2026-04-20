@@ -560,6 +560,105 @@ section img {
 footer { display: none; }
 
 /* ════════════════════════════════════════════════
+   TIMELINE  (Career Path + Awards)
+   ════════════════════════════════════════════════ */
+
+/* Vertical track */
+.timeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  /* left edge of year col (80px) + gap (20px) + half dot (8px) = 108px */
+  left: 108px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--green-light) 0%,
+    rgba(82,183,136,.15) 100%
+  );
+  border-radius: 2px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 80px 16px 1fr;
+  column-gap: 20px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+/* Year label */
+.timeline-year {
+  text-align: right;
+  padding-top: 1px;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+/* Dot on the track */
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--green-light);
+  border: 2.5px solid var(--white);
+  box-shadow: 0 0 0 2px var(--green-light);
+  justify-self: center;
+  flex-shrink: 0;
+}
+
+/* Card content */
+.timeline-card {
+  padding-top: 0;
+  padding-bottom: 4px;
+}
+
+.timeline-title {
+  font-size: .94rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  line-height: 1.4;
+  margin-bottom: 3px;
+}
+
+/* Multiple awards in one year — separate with a thin rule */
+.awards-timeline .timeline-title + .timeline-title {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--line);
+}
+
+.timeline-meta {
+  font-size: .84rem;
+  color: var(--muted);
+  line-height: 1.48;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.timeline-note {
+  font-size: .80rem;
+  color: var(--muted-light);
+  font-style: italic;
+  line-height: 1.42;
+  margin-top: 3px;
+}
+
+/* ════════════════════════════════════════════════
    RESPONSIVE
    ════════════════════════════════════════════════ */
 @media (max-width: 900px) {
