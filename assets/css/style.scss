@@ -58,14 +58,22 @@
 * { box-sizing: border-box; }
 html { min-height: 100%; }
 
-/* ── Page — Sequoia wallpaper ─────────────────── */
+/* ════════════════════════════════════════════════
+   ANIMATED BACKGROUND — macOS Sequoia dynamic style
+
+   Three composited layers:
+     body            — deep cobalt-to-teal solid fallback
+     body::before    — bg.svg scene, slow parallax drift
+     body::after     — warm sun-bloom from below, breathing
+   ════════════════════════════════════════════════ */
+
+/* Solid deep-blue fallback (also shows during first paint) */
 body {
   min-height: 100vh;
   margin: 0;
   position: relative;
   overflow-x: hidden;
-  background:
-    linear-gradient(140deg, #102E2C 0%, #1C4A48 42%, #6B1A28 100%);
+  background: linear-gradient(155deg, #0E2A28 0%, #1C4A48 45%, #0A1C38 100%);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI',
                system-ui, sans-serif;
@@ -79,83 +87,93 @@ body::before,
 body::after {
   content: "";
   position: fixed;
+  inset: 0;
   pointer-events: none;
 }
 
+/* ── Layer 1: Sequoia rays scene (bg.svg), slow drift ── */
 body::before {
   z-index: -2;
-  inset: -7vh -7vw;
+  /* Oversized so translate never reveals an edge */
+  inset: -8vh -8vw;
   background:
-    url('/assets/images/bg.svg') center center / cover no-repeat,
-    linear-gradient(140deg, var(--sidebar-1), var(--dark-sea));
-  transform: scale(1.04);
+    url('/assets/images/bg.svg') center 62% / cover no-repeat;
   transform-origin: 50% 62%;
-  animation: sequoia-drift 46s ease-in-out infinite alternate;
+  animation: sq-scene 54s ease-in-out infinite alternate;
   will-change: transform, filter;
 }
 
+/* ── Layer 2: Warm sun-bloom, breathes from below ────── */
 body::after {
   z-index: -1;
-  inset: -18vh -18vw;
   background:
-    linear-gradient(108deg,
-      transparent 0%,
-      transparent 18%,
-      rgba(255,244,210,.16) 24%,
-      transparent 32%,
-      transparent 100%),
-    linear-gradient(72deg,
-      transparent 0%,
-      transparent 53%,
-      rgba(255,210,146,.13) 60%,
-      transparent 68%,
-      transparent 100%),
+    /* Central bright bloom — the sun focal point */
+    radial-gradient(ellipse 52% 60% at 50% 112%,
+      rgba(255, 218, 120, 0.36) 0%,
+      rgba(255, 150,  55, 0.20) 38%,
+      transparent               68%),
+    /* Wider diffuse halo */
+    radial-gradient(ellipse 90% 55% at 50% 118%,
+      rgba(255, 170,  70, 0.14) 0%,
+      transparent               60%),
+    /* Subtle cool-sky top tint */
     linear-gradient(180deg,
-      rgba(255,255,255,.06) 0%,
-      transparent 46%,
-      rgba(107,26,40,.2) 100%);
+      rgba(100, 160, 255, 0.07) 0%,
+      transparent               40%,
+      rgba(107,  26,  40, 0.12) 100%);
   mix-blend-mode: screen;
-  opacity: .72;
-  transform: translate3d(-2vw, 0, 0) rotate(.001deg);
-  animation: sequoia-rays 32s ease-in-out infinite alternate;
+  animation: sq-bloom 20s ease-in-out infinite alternate;
   will-change: transform, opacity;
 }
 
-@keyframes sequoia-drift {
+/* ── Keyframes ────────────────────────────────────── */
+
+/* Scene: gentle pan + slow breathe in brightness/saturation */
+@keyframes sq-scene {
   0% {
-    transform: translate3d(-1.6vw, -1vh, 0) scale(1.04);
-    filter: saturate(1.02) brightness(.98);
+    transform: translate3d(-2.2vw, -1.2vh, 0) scale(1.04);
+    filter: brightness(0.94) saturate(1.00);
   }
-  50% {
-    transform: translate3d(1.2vw, .7vh, 0) scale(1.075);
-    filter: saturate(1.14) brightness(1.04);
+  25% {
+    filter: brightness(1.00) saturate(1.08);
+  }
+  55% {
+    transform: translate3d( 1.6vw,  0.8vh, 0) scale(1.07);
+    filter: brightness(1.07) saturate(1.18);
+  }
+  80% {
+    filter: brightness(1.04) saturate(1.12);
   }
   100% {
-    transform: translate3d(2vw, -1.2vh, 0) scale(1.055);
-    filter: saturate(1.06) brightness(1);
+    transform: translate3d( 2.0vw, -0.6vh, 0) scale(1.05);
+    filter: brightness(0.98) saturate(1.06);
   }
 }
 
-@keyframes sequoia-rays {
+/* Bloom: the warm light source swells and fades — the "breathing" */
+@keyframes sq-bloom {
   0% {
-    transform: translate3d(-4vw, 1vh, 0) skewX(-2deg);
-    opacity: .48;
+    opacity: 0.52;
+    transform: scale(0.90) translateY( 2.5%);
   }
-  50% {
-    transform: translate3d(1vw, -1.5vh, 0) skewX(1deg);
-    opacity: .78;
+  40% {
+    opacity: 0.95;
+    transform: scale(1.08) translateY(-1.0%);
+  }
+  70% {
+    opacity: 1.00;
+    transform: scale(1.12) translateY(-2.0%);
   }
   100% {
-    transform: translate3d(4vw, .5vh, 0) skewX(-1deg);
-    opacity: .58;
+    opacity: 0.60;
+    transform: scale(0.94) translateY( 1.5%);
   }
 }
 
+/* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  body::before,
-  body::after {
-    animation: none;
-  }
+  body::before { animation: none; }
+  body::after  { animation: none; opacity: 0.7; }
 }
 
 /* ── Layout ───────────────────────────────────── */
