@@ -93,7 +93,9 @@ body::after {
 
 /* ── Layer 1: Sequoia rays scene (bg.svg), slow drift ── */
 body::before {
-  z-index: -2;
+  z-index: 0;   /* positive — body has position:relative which creates a
+                   stacking context; negative z-index would hide behind
+                   body's own background, making bg.svg invisible */
   /* Oversized so translate never reveals an edge */
   inset: -8vh -8vw;
   background:
@@ -105,7 +107,7 @@ body::before {
 
 /* ── Layer 2: Warm sun-bloom, breathes from below ────── */
 body::after {
-  z-index: -1;
+  z-index: 1;
   background:
     /* Central bright bloom — the sun focal point */
     radial-gradient(ellipse 52% 60% at 50% 112%,
@@ -179,7 +181,7 @@ body::after {
 /* ── Layout ───────────────────────────────────── */
 .wrapper {
   position: relative;
-  z-index: 1;
+  z-index: 2;   /* above both ::before (0) and ::after (1) */
   width: calc(100% - 56px) !important;
   max-width: 1280px !important;
   margin: 0 auto !important;
