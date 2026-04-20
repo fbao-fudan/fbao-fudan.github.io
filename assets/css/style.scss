@@ -62,7 +62,10 @@ html { min-height: 100%; }
 body {
   min-height: 100vh;
   margin: 0;
-  background: url('/assets/images/bg.svg') center center / cover no-repeat fixed;
+  position: relative;
+  overflow-x: hidden;
+  background:
+    linear-gradient(140deg, #102E2C 0%, #1C4A48 42%, #6B1A28 100%);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI',
                system-ui, sans-serif;
@@ -72,8 +75,93 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+}
+
+body::before {
+  z-index: -2;
+  inset: -7vh -7vw;
+  background:
+    url('/assets/images/bg.svg') center center / cover no-repeat,
+    linear-gradient(140deg, var(--sidebar-1), var(--dark-sea));
+  transform: scale(1.04);
+  transform-origin: 50% 62%;
+  animation: sequoia-drift 46s ease-in-out infinite alternate;
+  will-change: transform, filter;
+}
+
+body::after {
+  z-index: -1;
+  inset: -18vh -18vw;
+  background:
+    linear-gradient(108deg,
+      transparent 0%,
+      transparent 18%,
+      rgba(255,244,210,.16) 24%,
+      transparent 32%,
+      transparent 100%),
+    linear-gradient(72deg,
+      transparent 0%,
+      transparent 53%,
+      rgba(255,210,146,.13) 60%,
+      transparent 68%,
+      transparent 100%),
+    linear-gradient(180deg,
+      rgba(255,255,255,.06) 0%,
+      transparent 46%,
+      rgba(107,26,40,.2) 100%);
+  mix-blend-mode: screen;
+  opacity: .72;
+  transform: translate3d(-2vw, 0, 0) rotate(.001deg);
+  animation: sequoia-rays 32s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes sequoia-drift {
+  0% {
+    transform: translate3d(-1.6vw, -1vh, 0) scale(1.04);
+    filter: saturate(1.02) brightness(.98);
+  }
+  50% {
+    transform: translate3d(1.2vw, .7vh, 0) scale(1.075);
+    filter: saturate(1.14) brightness(1.04);
+  }
+  100% {
+    transform: translate3d(2vw, -1.2vh, 0) scale(1.055);
+    filter: saturate(1.06) brightness(1);
+  }
+}
+
+@keyframes sequoia-rays {
+  0% {
+    transform: translate3d(-4vw, 1vh, 0) skewX(-2deg);
+    opacity: .48;
+  }
+  50% {
+    transform: translate3d(1vw, -1.5vh, 0) skewX(1deg);
+    opacity: .78;
+  }
+  100% {
+    transform: translate3d(4vw, .5vh, 0) skewX(-1deg);
+    opacity: .58;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+}
+
 /* ── Layout ───────────────────────────────────── */
 .wrapper {
+  position: relative;
+  z-index: 1;
   width: calc(100% - 56px) !important;
   max-width: 1280px !important;
   margin: 0 auto !important;

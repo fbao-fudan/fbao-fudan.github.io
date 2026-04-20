@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <!--
+    macOS Sequoia-style wallpaper.
+    Sunlight streaming upward through giant sequoia trunks —
+    warm golden rays radiating from a focal point below the canvas
+    against a deep cobalt-blue sky.
+  -->
+  <defs>
+
+    <!-- Soften each light beam into a natural glow -->
+    <filter id="fRays" x="-100" y="-100" width="1640" height="1100" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+
+    <!-- Deep cobalt-blue background, brighter in the upper-left -->
+    <radialGradient id="gBg" cx="28%" cy="45%" r="85%">
+      <stop offset="0%"   stop-color="#3868E0"/>
+      <stop offset="50%"  stop-color="#1C48C0"/>
+      <stop offset="100%" stop-color="#0A1C78"/>
+    </radialGradient>
+
+    <!-- Radial warm sun-glow emanating from the focal point -->
+    <radialGradient id="gGlow" cx="50%" cy="107%" r="70%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#FFF2A8" stop-opacity="1.00"/>
+      <stop offset="15%"  stop-color="#FFAA38" stop-opacity="0.88"/>
+      <stop offset="40%"  stop-color="#F07020" stop-opacity="0.50"/>
+      <stop offset="75%"  stop-color="#E04C10" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#D03000" stop-opacity="0.00"/>
+    </radialGradient>
+
+  </defs>
+
+  <!-- ── 1. Rich cobalt-blue sky ─────────────────────────── -->
+  <rect width="1440" height="900" fill="url(#gBg)"/>
+
+  <!-- ── 2. Light rays — focal point at (720, 960) ─────────
+       Tall triangles radiating upward, blurred into soft beams.
+       Order: outer dim → inner bright (painter's order).         -->
+  <g filter="url(#fRays)">
+
+    <!-- Far-outer left -->
+    <polygon points="720,960   50, 0   95, 0" fill="#CC5808" opacity="0.28"/>
+    <!-- Far-outer right -->
+    <polygon points="720,960 1345, 0 1390, 0" fill="#CC5808" opacity="0.28"/>
+
+    <!-- Outer left -->
+    <polygon points="720,960  200, 0  258, 0" fill="#E07818" opacity="0.42"/>
+    <!-- Outer right -->
+    <polygon points="720,960 1182, 0 1240, 0" fill="#E07818" opacity="0.42"/>
+
+    <!-- Mid left -->
+    <polygon points="720,960  368, 0  432, 0" fill="#F09828" opacity="0.58"/>
+    <!-- Mid right -->
+    <polygon points="720,960 1008, 0 1072, 0" fill="#F09828" opacity="0.58"/>
+
+    <!-- Near-centre left -->
+    <polygon points="720,960  520, 0  592, 0" fill="#FDC858" opacity="0.72"/>
+    <!-- Near-centre right -->
+    <polygon points="720,960  848, 0  920, 0" fill="#FDC858" opacity="0.72"/>
+
+    <!-- Central bright beam — cream/white -->
+    <polygon points="720,960  648, 0  792, 0" fill="#FFF8E0" opacity="0.92"/>
+
+  </g>
+
+  <!-- ── 3. Warm radial glow from below — ties beams together -->
+  <rect width="1440" height="900" fill="url(#gGlow)"/>
+
+</svg>

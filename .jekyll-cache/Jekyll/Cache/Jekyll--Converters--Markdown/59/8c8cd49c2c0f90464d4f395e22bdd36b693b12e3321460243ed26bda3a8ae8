@@ -1,53 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Understand the principle behind complex systems | Fudan University</title>
-<meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Understand the principle behind complex systems" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Fudan University" />
-<meta property="og:description" content="Fudan University" />
-<meta property="og:site_name" content="Understand the principle behind complex systems" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Understand the principle behind complex systems" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Fudan University","headline":"Understand the principle behind complex systems","name":"Understand the principle behind complex systems","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/image/profile.png"}},"url":"/"}</script>
-<!-- End Jekyll SEO tag -->
-
-    <link rel="stylesheet" href="/assets/css/style.css?v=">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="/">Understand the principle behind complex systems</a></h1>
-
-        
-          <img src="/image/profile.png" alt="Logo" />
-        
-
-        <p>Fudan University</p>
-
-        <p class="view"><a href="https://baolab-fudan.github.io/index.html">Bao Lab</a></p>
-
-        
-      </header>
-      <section>
-
-      <div class="panel panel-hero">
+I"�$<div class="panel panel-hero">
 
   <h1 id="feng-bao-">Feng BAO 鲍峰</h1>
 
@@ -284,13 +235,4 @@
   gtag('config', 'UA-102911962-1');
 </script>
 
-
-
-      </section>
-      <footer>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="/assets/js/scale.fix.js"></script>
-  </body>
-</html>
+:ET
