@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<div class="panel panel-hero" markdown="1">
+
 # Feng BAO 鲍峰
 
 I am a Principal Investigator at the [College for Future Information Technology](https://www.fudan.edu.cn/en/), [Fudan University](https://www.fudan.edu.cn/en/), Shanghai. My research develops statistical learning and AI methods to answer fundamental biological questions and advance medicine — spanning self-supervised representation learning, multi-modal information fusion, causal inference in complex biological systems, and deep generative models for spatial omics.
@@ -14,7 +16,9 @@ Previously, I was a Postdoc (2019–2024) at [Altschuler and Wu Lab](https://www
 Contact: fbao@fudan.edu.cn
 ```
 
----
+</div>
+
+<div class="panel" markdown="1">
 
 ## Career Path
 
@@ -64,7 +68,9 @@ Contact: fbao@fudan.edu.cn
   </div>
 </div>
 
----
+</div>
+
+<div class="panel" markdown="1">
 
 ## Awards & Honors
 
@@ -74,6 +80,12 @@ Contact: fbao@fudan.edu.cn
     <div class="timeline-dot"></div>
     <div class="timeline-card">
       <div class="timeline-title">Shanghai Science and Technology Leadership U35 Nomination</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year"></div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
       <div class="timeline-title">Xiaomi Young Scholar</div>
     </div>
   </div>
@@ -82,6 +94,12 @@ Contact: fbao@fudan.edu.cn
     <div class="timeline-dot"></div>
     <div class="timeline-card">
       <div class="timeline-title">National High-level Overseas Young Talent</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year"></div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
       <div class="timeline-title">Shanghai High-level Overseas Young Talent</div>
     </div>
   </div>
@@ -90,7 +108,19 @@ Contact: fbao@fudan.edu.cn
     <div class="timeline-dot"></div>
     <div class="timeline-card">
       <div class="timeline-title">Cell Press China Most Popular Article</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year"></div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
       <div class="timeline-title">Germany DAAD AInet Fellowship</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year"></div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
       <div class="timeline-title">CICAI International Conference on Artificial Intelligence, Best Paper Finalist</div>
     </div>
   </div>
@@ -99,6 +129,12 @@ Contact: fbao@fudan.edu.cn
     <div class="timeline-dot"></div>
     <div class="timeline-card">
       <div class="timeline-title">IEEE CIS Transactions on Fuzzy Systems Outstanding Paper Award</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year"></div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
       <div class="timeline-title">World Artificial Intelligence Conference Outstanding Young Paper Award</div>
     </div>
   </div>
@@ -107,12 +143,20 @@ Contact: fbao@fudan.edu.cn
     <div class="timeline-dot"></div>
     <div class="timeline-card">
       <div class="timeline-title">Beijing Outstanding Doctoral Dissertation</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-year"></div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-card">
       <div class="timeline-title">Tsinghua University Outstanding Doctoral Dissertation</div>
     </div>
   </div>
 </div>
 
----
+</div>
+
+<div class="panel" markdown="1">
 
 ## Research Interests
 
@@ -128,7 +172,9 @@ Contact: fbao@fudan.edu.cn
 
 [Full publication list on Google Scholar](https://scholar.google.com/citations?user=I0mcA3MAAAAJ&hl=en)
 
----
+</div>
+
+<div class="panel" markdown="1">
 
 ## Selected Publications
 
@@ -147,7 +193,9 @@ Contact: fbao@fudan.edu.cn
 5. **Scalable analysis of cell type composition from single-cell transcriptomics using deep recurrent learning.**  
    *Nature Methods*. 2019, 16: 311–314.
 
----
+</div>
+
+<div class="panel" markdown="1">
 
 ## Academic Service
 
@@ -157,9 +205,13 @@ Reviewer for:
 - IEEE Transactions on Neural Networks and Learning Systems · IEEE Transactions on Fuzzy Systems
 - IEEE Journal of Selected Topics in Signal Processing
 
----
+</div>
+
+<div class="panel" markdown="1">
 
 _Last update: April 2026_
+
+</div>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102911962-1"></script>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <filter id="blur1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="80"/>
+    </filter>
+    <filter id="blur2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="110"/>
+    </filter>
+    <filter id="blur3" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="65"/>
+    </filter>
+  </defs>
+
+  <!-- Base — deep cool gray -->
+  <rect width="1440" height="900" fill="#d1d5db"/>
+
+  <!-- Large blobs — macOS Sonoma-style soft color volumes -->
+
+  <!-- Blue — upper left -->
+  <ellipse cx="220"  cy="180"  rx="520" ry="380" fill="#93c5fd" opacity="0.55" filter="url(#blur1)"/>
+
+  <!-- Indigo — upper right -->
+  <ellipse cx="1260" cy="140"  rx="480" ry="340" fill="#a5b4fc" opacity="0.50" filter="url(#blur1)"/>
+
+  <!-- Teal — center left -->
+  <ellipse cx="360"  cy="560"  rx="420" ry="300" fill="#67e8f9" opacity="0.38" filter="url(#blur2)"/>
+
+  <!-- Purple — center right -->
+  <ellipse cx="1100" cy="520"  rx="500" ry="360" fill="#c4b5fd" opacity="0.42" filter="url(#blur2)"/>
+
+  <!-- Soft white core — Apple's characteristic bright center -->
+  <ellipse cx="720"  cy="400"  rx="600" ry="420" fill="#e0f2fe" opacity="0.60" filter="url(#blur1)"/>
+
+  <!-- Warm accent — lower center -->
+  <ellipse cx="680"  cy="820"  rx="440" ry="200" fill="#bae6fd" opacity="0.45" filter="url(#blur3)"/>
+
+  <!-- Deep blue shadow — lower right corner -->
+  <ellipse cx="1380" cy="860"  rx="380" ry="260" fill="#818cf8" opacity="0.35" filter="url(#blur2)"/>
+
+</svg>

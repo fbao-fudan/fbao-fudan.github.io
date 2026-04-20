@@ -3,66 +3,57 @@
 
 @import "{{ site.theme }}";
 
-/* Muted academic palette: navy, rose, parchment, plum, olive */
+/* ════════════════════════════════════════════════
+   Apple Human Interface Guidelines — System Colors
+   ════════════════════════════════════════════════ */
 :root {
-  --navy:           #303665;
-  --rose:           #d67684;
-  --parchment:      #d9ccb7;
-  --plum:           #443343;
-  --olive:          #a79762;
+  /* Sidebar — Apple dark (macOS / iOS dark grouped) */
+  --sidebar-1:  #1c1c1e;
+  --sidebar-2:  #2c2c2e;
+  --sidebar-3:  #3a3a3c;
 
-  --forest-dark:    #2b294f;
-  --forest-mid:     var(--plum);
-  --forest-top:     var(--navy);
+  /* Apple system blue — primary accent */
+  --blue:       #007aff;
+  --blue-light: #409cff;
+  --blue-pale:  rgba(0, 122, 255, .10);
 
-  --green:          var(--navy);
-  --green-light:    var(--olive);
-  --green-bright:   var(--parchment);
-  --green-pale:     rgba(48, 54, 101, .1);
+  /* Backgrounds */
+  --white:  #ffffff;
+  --page:   #f2f2f7;   /* Apple systemGroupedBackground */
 
-  --blood:          var(--rose);
-  --blood-dark:     #a84e61;
-  --blood-pale:     rgba(214, 118, 132, .13);
-  --timber:         var(--olive);
-  --timber-dark:    #7f7247;
-  --timber-pale:    rgba(167, 151, 98, .18);
-  --sky:            #eee7dc;
+  /* Typography — Apple label hierarchy */
+  --ink:         #000000;                  /* primaryLabel */
+  --ink-2:       #1c1c1e;                  /* label */
+  --muted:       rgba(60, 60, 67, 0.60);   /* secondaryLabel */
+  --muted-light: rgba(60, 60, 67, 0.30);   /* tertiaryLabel */
 
-  --white:          #fffdf9;
-  --page:           #f3eee5;
+  /* Separators */
+  --line:        rgba(60, 60, 67, 0.18);
+  --line-strong: rgba(60, 60, 67, 0.29);
 
-  --ink:            #242231;
-  --ink-2:          #30283a;
-  --muted:          #736b76;
-  --muted-light:    #aaa0a7;
+  /* Shadows — Apple: barely-there */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,.04), 0 4px 10px rgba(0,0,0,.06);
+  --shadow:     0 2px 8px rgba(0,0,0,.04), 0 12px 36px rgba(0,0,0,.08);
+  --shadow-lg:  0 4px 14px rgba(0,0,0,.07), 0 24px 60px rgba(0,0,0,.13);
 
-  --line:           #d8ccbb;
-  --line-strong:    #c7b99f;
-
-  --shadow-sm:  0 1px 4px rgba(68,51,67,.05), 0 4px 12px rgba(48,54,101,.07);
-  --shadow:     0 2px 8px rgba(68,51,67,.05), 0 12px 40px rgba(48,54,101,.1);
-  --shadow-lg:  0 4px 16px rgba(48,54,101,.08), 0 24px 64px rgba(68,51,67,.18);
-
-  --radius:     8px;
-  --radius-sm:  8px;
+  /* Geometry */
+  --radius:    18px;
+  --radius-sm: 10px;
 }
 
 /* ── Reset ────────────────────────────────────── */
 * { box-sizing: border-box; }
 html { min-height: 100%; }
 
-/* ────────────────────────────────────────────────
-   Page
-   ──────────────────────────────────────────────── */
+/* ── Page — macOS abstract wallpaper ──────────── */
 body {
   min-height: 100vh;
   margin: 0;
   background:
-    linear-gradient(135deg, rgba(217,204,183,.72) 0%, transparent 34%),
-    radial-gradient(ellipse 62% 40% at 82% 10%, rgba(214,118,132,.13) 0%, transparent 56%),
-    var(--page);
+    url('/assets/images/bg.svg') center center / cover no-repeat fixed;
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI',
+               system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.72;
   -webkit-font-smoothing: antialiased;
@@ -93,35 +84,26 @@ header {
   min-height: calc(100vh - 96px);
   padding: 40px 30px !important;
   overflow: hidden;
-
   background:
-    radial-gradient(circle at 50% 98%, rgba(167,151,98,.18) 0%, transparent 42%),
-    linear-gradient(170deg, rgba(214,118,132,.14) 0%, transparent 36%),
-    linear-gradient(170deg, var(--forest-top) 0%, var(--forest-mid) 50%, var(--forest-dark) 100%) !important;
-
-  border: 1px solid rgba(217,204,183,.18);
+    url('/assets/images/tree.svg') bottom center / 96% no-repeat,
+    linear-gradient(170deg, var(--sidebar-3) 0%, var(--sidebar-2) 50%, var(--sidebar-1) 100%) !important;
+  border: 1px solid rgba(255,255,255,.06);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
 }
 
-/* Palette accent line */
+/* Apple blue shimmer line at top */
 header::after {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg,
-    transparent,
-    var(--timber) 20%,
-    var(--blood) 50%,
-    var(--timber) 80%,
-    transparent);
+    transparent, var(--blue) 30%, var(--blue-light) 50%, var(--blue) 70%, transparent);
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-header::before {
-  content: none;
-}
+header::before { content: none; }
 
 /* Profile photo */
 header img {
@@ -132,18 +114,18 @@ header img {
   margin: 0 auto 24px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2.5px solid rgba(217, 204, 183, .82);
+  border: 2.5px solid rgba(64,156,255,.65);
   box-shadow:
-    0 0 0 5px rgba(167, 151, 98, .18),
-    0 18px 42px rgba(0,0,0,.38);
-  transition: box-shadow .28s ease, border-color .28s ease;
+    0 0 0 5px rgba(0,122,255,.12),
+    0 18px 42px rgba(0,0,0,.40);
+  transition: box-shadow .28s, border-color .28s;
 }
 
 header img:hover {
-  border-color: var(--blood);
+  border-color: var(--blue-light);
   box-shadow:
-    0 0 0 5px rgba(214, 118, 132, .2),
-    0 18px 42px rgba(0,0,0,.44);
+    0 0 0 5px rgba(0,122,255,.20),
+    0 18px 42px rgba(0,0,0,.46);
 }
 
 /* Name */
@@ -155,14 +137,14 @@ header h1 {
   font-weight: 700;
   line-height: 1.26;
   text-align: center;
-  letter-spacing: 0;
+  letter-spacing: -.01em;
 }
 
-/* Institution / description */
+/* Institution */
 header p {
   position: relative;
   margin: 0;
-  color: rgba(255,255,255,.52) !important;
+  color: rgba(235,235,245,.55) !important;  /* Apple dark secondaryLabel */
   font-size: .82rem !important;
   line-height: 1.62;
   text-align: center;
@@ -170,17 +152,17 @@ header p {
 }
 
 header a {
-  color: var(--green-bright) !important;
+  color: var(--blue-light) !important;
   text-decoration: none;
-  border-bottom: 1px solid rgba(217, 204, 183, .46);
+  border-bottom: 1px solid rgba(64,156,255,.32);
   transition: color .15s, border-color .15s;
 }
 header a:hover {
   color: #fff !important;
-  border-bottom-color: rgba(255,255,255,.48);
+  border-bottom-color: rgba(255,255,255,.5);
 }
 
-/* Nav links */
+/* Nav buttons */
 header ul {
   position: relative;
   list-style: none;
@@ -188,7 +170,7 @@ header ul {
   margin: 26px 0 0;
   display: grid;
   gap: 8px;
-  border-top: 1px solid rgba(217,204,183,.24);
+  border-top: 1px solid rgba(255,255,255,.1);
 }
 
 header ul li { margin: 0; }
@@ -199,9 +181,9 @@ header ul li a {
   align-items: center;
   justify-content: center;
   padding: 8px 14px;
-  color: rgba(255,255,255,.85) !important;
-  background: rgba(167,151,98,.12);
-  border: 1px solid rgba(217,204,183,.24);
+  color: rgba(255,255,255,.88) !important;
+  background: rgba(0,122,255,.12);
+  border: 1px solid rgba(0,122,255,.25);
   border-radius: var(--radius-sm);
   font-size: .82rem;
   font-weight: 500;
@@ -213,45 +195,71 @@ header ul li a {
 }
 
 header ul li a:hover {
-  background: rgba(214, 118, 132, .16);
-  border-color: rgba(217, 204, 183, .5);
-  color: var(--green-bright) !important;
+  background: rgba(0,122,255,.24);
+  border-color: rgba(64,156,255,.52);
+  color: var(--blue-light) !important;
   transform: translateY(-1px);
   text-decoration: none !important;
 }
 
 /* ════════════════════════════════════════════════
-   CONTENT CARD
+   CONTENT AREA — transparent shell, panels inside
    ════════════════════════════════════════════════ */
 section {
   width: auto !important;
   max-width: 940px;
   float: none !important;
-  padding: 70px 80px !important;
-  position: relative;
-  background: var(--white);
-  border: 1px solid rgba(68,51,67,.08);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* Hairline green top rule */
-section::before {
+section::before { display: none; }
+
+/* ── Widget panel — each section is its own card ─ */
+.panel {
+  position: relative;
+  padding: 40px 52px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--radius);
+  box-shadow:
+    0 2px 6px rgba(0,0,0,.04),
+    0 12px 40px rgba(0,0,0,.10);
+}
+
+/* Blue hairline on each panel */
+.panel::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
   height: 2px;
   background: linear-gradient(90deg,
-    transparent,
-    var(--green) 18%,
-    var(--timber) 50%,
-    var(--green) 82%,
-    transparent);
+    transparent, var(--blue) 20%, var(--blue-light) 50%, var(--blue) 80%, transparent);
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-/* ── Headings ─────────────────────────────────── */
+/* First panel — hero bio card */
+.panel-hero {
+  background: rgba(255, 255, 255, 0.85);
+}
 
+/* Remove top margin from first heading in a panel */
+.panel h2:first-child,
+.panel h1:first-child {
+  margin-top: 0;
+}
+
+/* Remove bottom hr inside panels */
+.panel > hr { display: none; }
+
+/* ── Headings ─────────────────────────────────── */
 section h1 {
   margin: 0 0 20px;
   max-width: 820px;
@@ -259,10 +267,9 @@ section h1 {
   font-size: 2.8rem;
   font-weight: 800;
   line-height: 1.1;
-  letter-spacing: 0;
+  letter-spacing: -.03em;
 }
 
-/* Dragon blood tree underline accent */
 section h1::after {
   content: "";
   display: block;
@@ -270,29 +277,28 @@ section h1::after {
   height: 3px;
   margin-top: 22px;
   border-radius: 100px;
-  background: linear-gradient(90deg, var(--green), var(--timber), var(--blood));
+  background: var(--blue);
 }
 
 section h2 {
   margin: 60px 0 16px;
   padding: 0 0 12px;
   color: var(--ink-2);
-  /* Apple Section Title */
   font-size: 1.28rem;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: -.015em;
   border-bottom: 1px solid var(--line);
 }
 
 section h2::before {
   content: "";
   display: inline-block;
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   margin-right: 10px;
-  vertical-align: -.08em;
-  background: url('/assets/images/dragon-blood-tree-icon.svg') center / contain no-repeat;
-  opacity: .9;
+  vertical-align: .06em;
+  border-radius: 50%;
+  background: var(--blue);
 }
 
 section h3 {
@@ -300,7 +306,7 @@ section h3 {
   color: var(--ink-2);
   font-size: 1.06rem;
   font-weight: 600;
-  letter-spacing: 0;
+  letter-spacing: -.012em;
 }
 
 section h4 {
@@ -308,102 +314,6 @@ section h4 {
   font-size: .95rem;
   font-weight: 500;
   font-style: normal;
-  letter-spacing: 0;
-}
-
-/* ── Timelines ────────────────────────────────── */
-.timeline {
-  margin: 24px 0 6px;
-}
-
-.timeline-item {
-  display: grid;
-  grid-template-columns: 104px 20px minmax(0, 1fr);
-  gap: 14px;
-  position: relative;
-}
-
-.timeline-item + .timeline-item {
-  margin-top: 18px;
-}
-
-.timeline-year {
-  padding-top: 13px;
-  color: var(--blood-dark);
-  font-size: .78rem;
-  font-weight: 800;
-  text-align: right;
-  white-space: nowrap;
-}
-
-.timeline-dot {
-  position: relative;
-  width: 13px;
-  height: 13px;
-  margin-top: 17px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 3px solid var(--timber);
-  box-shadow: 0 0 0 5px var(--timber-pale);
-}
-
-.timeline-item:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  top: 31px;
-  bottom: -18px;
-  left: 124px;
-  width: 1px;
-  background: linear-gradient(180deg, rgba(167,151,98,.58), rgba(48,54,101,.12));
-}
-
-.timeline-card {
-  padding: 13px 16px;
-  background: linear-gradient(180deg, rgba(255,253,249,.78), rgba(217,204,183,.26));
-  border: 1px solid rgba(68,51,67,.1);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-sm);
-}
-
-.timeline-title {
-  color: var(--ink-2);
-  font-size: .96rem;
-  font-weight: 700;
-  line-height: 1.45;
-}
-
-.timeline-title + .timeline-title {
-  margin-top: 7px;
-  padding-top: 7px;
-  border-top: 1px solid rgba(167,151,98,.24);
-}
-
-.timeline-meta {
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: .9rem;
-  line-height: 1.55;
-}
-
-.timeline-note {
-  margin-top: 5px;
-  color: var(--green);
-  font-size: .84rem;
-  font-style: italic;
-  line-height: 1.5;
-}
-
-.awards-timeline .timeline-item {
-  grid-template-columns: 70px 20px minmax(0, 1fr);
-}
-
-.awards-timeline .timeline-dot {
-  border-color: var(--blood);
-  box-shadow: 0 0 0 5px var(--blood-pale);
-}
-
-.awards-timeline .timeline-item:not(:last-child)::before {
-  left: 90px;
 }
 
 /* ── Body ─────────────────────────────────────── */
@@ -413,15 +323,15 @@ p {
 }
 
 a {
-  color: var(--green);
+  color: var(--blue);
   text-decoration: none;
-  border-bottom: 1px solid rgba(48,54,101,.28);
+  border-bottom: 1px solid rgba(0,122,255,.25);
   transition: color .15s, border-color .15s;
 }
 
 a:hover {
-  color: var(--blood-dark);
-  border-bottom-color: rgba(214,118,132,.46);
+  color: #0051a8;
+  border-bottom-color: rgba(0,81,168,.4);
 }
 
 strong {
@@ -429,7 +339,7 @@ strong {
   font-weight: 700;
 }
 
-/* ── Code — contact block ─────────────────────── */
+/* ── Code ─────────────────────────────────────── */
 code, pre {
   font-family: "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: .85em;
@@ -442,41 +352,37 @@ pre {
   color: var(--ink-2);
   background: var(--page);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--timber);
+  border-left: 3px solid var(--blue);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
 }
 
 code {
   padding: 2px 7px;
-  background: var(--green-pale);
+  background: var(--blue-pale);
   border-radius: 6px;
-  color: var(--green);
+  color: var(--blue);
 }
 
-/* ── Blockquotes (citations) ──────────────────── */
+/* ── Blockquotes ──────────────────────────────── */
 blockquote {
   margin: 12px 0 26px;
   padding: 14px 20px 14px 22px;
   color: var(--muted);
   background: var(--page);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--timber);
+  border-left: 3px solid var(--blue-light);
   border-radius: var(--radius-sm);
   font-size: .88rem;
   font-style: normal;
 }
 
-blockquote p {
-  margin: 0;
-  color: var(--muted);
-}
+blockquote p { margin: 0; color: var(--muted); }
 
 /* ── Lists ────────────────────────────────────── */
 ul, ol { padding-left: 1.35em; }
 li { margin-bottom: .46em; }
 
-/* Top-level ul — custom leaf bullets */
 section > ul {
   padding-left: 0;
   list-style: none;
@@ -484,21 +390,19 @@ section > ul {
 
 section > ul > li {
   position: relative;
-  padding-left: 24px;
+  padding-left: 22px;
 }
 
-/* Small dragon-blood leaf bullet */
 section > ul > li::before {
   content: "";
   position: absolute;
-  top: .75em;
+  top: .78em;
   left: 2px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-  background: var(--blood);
-  opacity: .85;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  opacity: .75;
 }
 
 section > ul > li > ol,
@@ -535,8 +439,8 @@ section > ol > li::before {
   text-align: center;
   font-size: .76rem;
   font-weight: 700;
-  color: var(--green);
-  background: linear-gradient(135deg, var(--green-pale), var(--timber-pale));
+  color: var(--blue);
+  background: var(--blue-pale);
   border-radius: 8px;
 }
 
@@ -552,8 +456,8 @@ hr {
 section img {
   max-width: 100%;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(68,51,67,.08);
-  box-shadow: 0 8px 28px rgba(68,51,67,.08);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ── Footer ───────────────────────────────────── */
@@ -562,111 +466,99 @@ footer { display: none; }
 /* ════════════════════════════════════════════════
    TIMELINE  (Career Path + Awards)
    ════════════════════════════════════════════════ */
-
-/* Vertical track */
 .timeline {
   position: relative;
   margin: 0;
   padding: 0;
 }
 
+/* Vertical track line */
 .timeline::before {
   content: "";
   position: absolute;
-  /* left edge of year col (80px) + gap (20px) + half dot (8px) = 108px */
+  /* year col 80px + gap 20px + half-dot 8px = 108px */
   left: 108px;
-  top: 6px;
-  bottom: 6px;
-  width: 2px;
-  background: linear-gradient(
-    180deg,
-    var(--green-light) 0%,
-    rgba(82,183,136,.15) 100%
-  );
+  top: 8px;
+  bottom: 8px;
+  width: 1.5px;
+  background: linear-gradient(180deg,
+    var(--blue) 0%,
+    rgba(0,122,255,.12) 100%);
   border-radius: 2px;
 }
+
+.awards-timeline::before { left: 88px; }
 
 .timeline-item {
   display: grid;
   grid-template-columns: 80px 16px 1fr;
   column-gap: 20px;
   align-items: start;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
-.timeline-item:last-child { margin-bottom: 0; }
+.awards-timeline .timeline-item {
+  grid-template-columns: 60px 16px 1fr;
+  margin-bottom: 16px;
+}
+
+.timeline-item:last-child,
+.awards-timeline .timeline-item:last-child { margin-bottom: 0; }
 
 /* Year label */
 .timeline-year {
+  padding-top: 2px;
   text-align: right;
-  padding-top: 1px;
   color: var(--muted);
-  font-size: .78rem;
+  font-size: .75rem;
   font-weight: 600;
   letter-spacing: .02em;
   white-space: nowrap;
   line-height: 1.6;
 }
 
-/* Dot on the track */
+/* Dot */
 .timeline-dot {
-  width: 14px;
-  height: 14px;
-  margin-top: 3px;
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
   border-radius: 50%;
-  background: var(--green-light);
-  border: 2.5px solid var(--white);
-  box-shadow: 0 0 0 2px var(--green-light);
+  background: var(--blue);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--blue);
   justify-self: center;
-  flex-shrink: 0;
 }
 
-/* Card content */
-.timeline-card {
-  padding-top: 0;
-  padding-bottom: 4px;
-}
+/* Card */
+.timeline-card { padding-bottom: 2px; }
 
 .timeline-title {
+  color: var(--ink-2);
   font-size: .94rem;
   font-weight: 600;
-  color: var(--ink-2);
-  line-height: 1.4;
-  margin-bottom: 3px;
-}
-
-/* Multiple awards in one year — separate with a thin rule */
-.awards-timeline .timeline-title + .timeline-title {
-  margin-top: 6px;
-  padding-top: 6px;
-  border-top: 1px solid var(--line);
-}
-
-.timeline-meta {
-  font-size: .84rem;
-  color: var(--muted);
-  line-height: 1.48;
-  margin-top: 2px;
+  line-height: 1.42;
   margin-bottom: 2px;
 }
 
+.timeline-meta {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .86rem;
+  line-height: 1.5;
+}
+
 .timeline-note {
-  font-size: .80rem;
+  margin-top: 3px;
   color: var(--muted-light);
+  font-size: .80rem;
   font-style: italic;
   line-height: 1.42;
-  margin-top: 3px;
 }
 
 /* ════════════════════════════════════════════════
    RESPONSIVE
    ════════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  body {
-    background-image: none;
-    background-color: var(--page);
-  }
-
   .wrapper {
     width: calc(100% - 24px) !important;
     max-width: 780px !important;
@@ -693,8 +585,7 @@ footer { display: none; }
     grid-row: span 2;
   }
 
-  header h1,
-  header p { text-align: left; }
+  header h1, header p { text-align: left; }
 
   header ul {
     grid-column: 1 / -1;
@@ -704,76 +595,22 @@ footer { display: none; }
 
   section {
     max-width: none;
-    padding: 42px 26px 36px !important;
+    padding: 0 !important;
   }
 
-  section h1 {
-    font-size: 2.1rem;
-    letter-spacing: 0;
+  .panel {
+    padding: 28px 24px;
   }
 
-  section h2 { margin-top: 44px; }
+  section h1 { font-size: 2.1rem; }
+  section h2 { margin-top: 0; }
+
+  .timeline::before { display: none; }
 
   .timeline-item,
   .awards-timeline .timeline-item {
-    display: block;
-    padding-left: 30px;
-  }
-
-  .timeline-year {
-    padding-top: 0;
-    margin-bottom: 7px;
-    font-size: .74rem;
-    text-align: left;
-  }
-
-  .timeline-dot {
-    position: absolute;
-    top: 3px;
-    left: 0;
-    margin-top: 0;
-  }
-
-  .timeline-card {
-    padding: 12px 13px;
-  }
-
-  .timeline-item:not(:last-child)::before,
-  .awards-timeline .timeline-item:not(:last-child)::before {
-    top: 20px;
-    bottom: -18px;
-    left: 6px;
-  }
-}
-
-@media (max-width: 520px) {
-  .wrapper {
-    width: calc(100% - 20px) !important;
-  }
-
-  section {
-    padding: 34px 18px 30px !important;
-  }
-
-  .timeline {
-    margin-top: 18px;
-  }
-
-  .timeline-item,
-  .awards-timeline .timeline-item {
-    padding-left: 24px;
-  }
-
-  .timeline-card {
-    padding: 11px 12px;
-  }
-
-  .timeline-title {
-    font-size: .92rem;
-    line-height: 1.42;
-  }
-
-  .timeline-meta {
-    font-size: .86rem;
+    grid-template-columns: 52px 14px 1fr;
+    column-gap: 14px;
+    margin-bottom: 18px;
   }
 }
