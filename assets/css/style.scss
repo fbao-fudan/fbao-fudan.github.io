@@ -4,39 +4,52 @@
 @import "{{ site.theme }}";
 
 /* ════════════════════════════════════════════════
-   Apple Human Interface Guidelines — System Colors
+   Color Palette
+   CAMEL · FOGHORN · DARK SEA · SNOWY PEAKS · WINDSOR WINE
    ════════════════════════════════════════════════ */
 :root {
-  /* Sidebar — Apple dark (macOS / iOS dark grouped) */
-  --sidebar-1:  #1c1c1e;
-  --sidebar-2:  #2c2c2e;
-  --sidebar-3:  #3a3a3c;
+  /* ── Palette tokens ─────────────────────────── */
+  --camel:     #B5795A;   /* warm terracotta        */
+  --foghorn:   #7A7872;   /* warm medium gray        */
+  --dark-sea:  #1C4A48;   /* deep teal               */
+  --snowy:     #F0EBE3;   /* cream / off-white       */
+  --wine:      #6B1A28;   /* deep burgundy           */
 
-  /* Apple system blue — primary accent */
-  --blue:       #007aff;
-  --blue-light: #409cff;
-  --blue-pale:  rgba(0, 122, 255, .10);
+  /* ── Sidebar (Dark Sea family) ──────────────── */
+  --sidebar-1: #102E2C;
+  --sidebar-2: #1C4A48;
+  --sidebar-3: #275856;
 
-  /* Backgrounds */
-  --white:  #ffffff;
-  --page:   #f2f2f7;   /* Apple systemGroupedBackground */
+  /* ── Primary accent = Dark Sea ──────────────── */
+  --blue:       var(--dark-sea);          /* #1C4A48 */
+  --blue-light: #2D6E6C;
+  --blue-pale:  rgba(28, 74, 72, 0.10);
 
-  /* Typography — Apple label hierarchy */
-  --ink:         #000000;                  /* primaryLabel */
-  --ink-2:       #1c1c1e;                  /* label */
-  --muted:       rgba(60, 60, 67, 0.60);   /* secondaryLabel */
-  --muted-light: rgba(60, 60, 67, 0.30);   /* tertiaryLabel */
+  /* ── Warm accent = Camel (decorative) ───────── */
+  --warm:       var(--camel);             /* #B5795A */
+  --warm-light: #C99278;
+  --warm-pale:  rgba(181, 121, 90, 0.12);
 
-  /* Separators */
-  --line:        rgba(60, 60, 67, 0.18);
-  --line-strong: rgba(60, 60, 67, 0.29);
+  /* ── Backgrounds ────────────────────────────── */
+  --white: #ffffff;
+  --page:  var(--snowy);                  /* #F0EBE3 */
 
-  /* Shadows — Apple: barely-there */
-  --shadow-sm:  0 1px 3px rgba(0,0,0,.04), 0 4px 10px rgba(0,0,0,.06);
-  --shadow:     0 2px 8px rgba(0,0,0,.04), 0 12px 36px rgba(0,0,0,.08);
-  --shadow-lg:  0 4px 14px rgba(0,0,0,.07), 0 24px 60px rgba(0,0,0,.13);
+  /* ── Typography ─────────────────────────────── */
+  --ink:         #1A100A;
+  --ink-2:       #2C1A10;
+  --muted:       rgba(44, 26, 16, 0.56);
+  --muted-light: rgba(44, 26, 16, 0.28);
 
-  /* Geometry */
+  /* ── Separators ─────────────────────────────── */
+  --line:        rgba(44, 26, 16, 0.13);
+  --line-strong: rgba(44, 26, 16, 0.22);
+
+  /* ── Shadows ────────────────────────────────── */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,.04), 0 4px 10px rgba(0,0,0,.07);
+  --shadow:     0 2px 8px rgba(0,0,0,.05), 0 12px 36px rgba(0,0,0,.09);
+  --shadow-lg:  0 4px 16px rgba(0,0,0,.08), 0 24px 60px rgba(0,0,0,.14);
+
+  /* ── Geometry ───────────────────────────────── */
   --radius:    18px;
   --radius-sm: 10px;
 }
@@ -45,12 +58,11 @@
 * { box-sizing: border-box; }
 html { min-height: 100%; }
 
-/* ── Page — macOS abstract wallpaper ──────────── */
+/* ── Page — Sequoia wallpaper ─────────────────── */
 body {
   min-height: 100vh;
   margin: 0;
-  background:
-    url('/assets/images/bg.svg') center center / cover no-repeat fixed;
+  background: url('/assets/images/bg.svg') center center / cover no-repeat fixed;
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI',
                system-ui, sans-serif;
@@ -73,7 +85,7 @@ body {
 }
 
 /* ════════════════════════════════════════════════
-   SIDEBAR
+   SIDEBAR — Dark Sea
    ════════════════════════════════════════════════ */
 header {
   width: auto !important;
@@ -85,20 +97,20 @@ header {
   padding: 40px 30px !important;
   overflow: hidden;
   background:
-    linear-gradient(170deg, var(--sidebar-3) 0%, var(--sidebar-2) 50%, var(--sidebar-1) 100%) !important;
+    linear-gradient(170deg, var(--sidebar-3) 0%, var(--sidebar-2) 55%, var(--sidebar-1) 100%) !important;
   border: 1px solid rgba(255,255,255,.06);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
 }
 
-/* Apple blue shimmer line at top */
+/* Camel shimmer line at top of sidebar */
 header::after {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg,
-    transparent, var(--blue) 30%, var(--blue-light) 50%, var(--blue) 70%, transparent);
+    transparent, var(--warm) 30%, var(--warm-light) 50%, var(--warm) 70%, transparent);
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
@@ -113,18 +125,18 @@ header img {
   margin: 0 auto 24px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2.5px solid rgba(64,156,255,.65);
+  border: 2.5px solid rgba(181,121,90,.65);
   box-shadow:
-    0 0 0 5px rgba(0,122,255,.12),
-    0 18px 42px rgba(0,0,0,.40);
+    0 0 0 5px rgba(181,121,90,.15),
+    0 18px 42px rgba(0,0,0,.42);
   transition: box-shadow .28s, border-color .28s;
 }
 
 header img:hover {
-  border-color: var(--blue-light);
+  border-color: var(--warm-light);
   box-shadow:
-    0 0 0 5px rgba(0,122,255,.20),
-    0 18px 42px rgba(0,0,0,.46);
+    0 0 0 5px rgba(181,121,90,.26),
+    0 18px 42px rgba(0,0,0,.48);
 }
 
 /* Name */
@@ -139,11 +151,11 @@ header h1 {
   letter-spacing: -.01em;
 }
 
-/* Institution */
+/* Subtitle / institution */
 header p {
   position: relative;
   margin: 0;
-  color: rgba(235,235,245,.55) !important;  /* Apple dark secondaryLabel */
+  color: rgba(235,232,225,.52) !important;
   font-size: .82rem !important;
   line-height: 1.62;
   text-align: center;
@@ -151,14 +163,14 @@ header p {
 }
 
 header a {
-  color: var(--blue-light) !important;
+  color: var(--warm-light) !important;
   text-decoration: none;
-  border-bottom: 1px solid rgba(64,156,255,.32);
+  border-bottom: 1px solid rgba(201,146,120,.30);
   transition: color .15s, border-color .15s;
 }
 header a:hover {
   color: #fff !important;
-  border-bottom-color: rgba(255,255,255,.5);
+  border-bottom-color: rgba(255,255,255,.45);
 }
 
 /* Nav buttons */
@@ -169,7 +181,7 @@ header ul {
   margin: 26px 0 0;
   display: grid;
   gap: 8px;
-  border-top: 1px solid rgba(255,255,255,.1);
+  border-top: 1px solid rgba(255,255,255,.09);
 }
 
 header ul li { margin: 0; }
@@ -181,12 +193,11 @@ header ul li a {
   justify-content: center;
   padding: 8px 14px;
   color: rgba(255,255,255,.88) !important;
-  background: rgba(0,122,255,.12);
-  border: 1px solid rgba(0,122,255,.25);
+  background: rgba(181,121,90,.12);
+  border: 1px solid rgba(181,121,90,.24);
   border-radius: var(--radius-sm);
   font-size: .82rem;
   font-weight: 500;
-  letter-spacing: 0;
   text-align: center;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -194,15 +205,15 @@ header ul li a {
 }
 
 header ul li a:hover {
-  background: rgba(0,122,255,.24);
-  border-color: rgba(64,156,255,.52);
-  color: var(--blue-light) !important;
+  background: rgba(181,121,90,.24);
+  border-color: rgba(201,146,120,.50);
+  color: var(--warm-light) !important;
   transform: translateY(-1px);
   text-decoration: none !important;
 }
 
 /* ════════════════════════════════════════════════
-   CONTENT AREA — transparent shell, panels inside
+   CONTENT AREA
    ════════════════════════════════════════════════ */
 section {
   width: auto !important;
@@ -219,43 +230,39 @@ section {
 
 section::before { display: none; }
 
-/* ── Widget panel — each section is its own card ─ */
+/* ── Widget panel ─────────────────────────────── */
 .panel {
   position: relative;
   padding: 40px 52px;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(240, 235, 227, 0.80);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.52);
   border-radius: var(--radius);
   box-shadow:
     0 2px 6px rgba(0,0,0,.04),
     0 12px 40px rgba(0,0,0,.10);
 }
 
-/* Blue hairline on each panel */
+/* Camel hairline on each panel */
 .panel::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
   height: 2px;
   background: linear-gradient(90deg,
-    transparent, var(--blue) 20%, var(--blue-light) 50%, var(--blue) 80%, transparent);
+    transparent, var(--warm) 20%, var(--warm-light) 50%, var(--warm) 80%, transparent);
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-/* First panel — hero bio card */
+/* Hero bio panel — slightly more opaque */
 .panel-hero {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(242, 237, 228, 0.88);
 }
 
-/* Remove top margin from first heading in a panel */
 .panel h2:first-child,
-.panel h1:first-child {
-  margin-top: 0;
-}
+.panel h1:first-child { margin-top: 0; }
 
-/* Remove bottom hr inside panels */
 .panel > hr { display: none; }
 
 /* ── Headings ─────────────────────────────────── */
@@ -276,7 +283,7 @@ section h1::after {
   height: 3px;
   margin-top: 22px;
   border-radius: 100px;
-  background: var(--blue);
+  background: var(--warm);
 }
 
 section h2 {
@@ -297,7 +304,7 @@ section h2::before {
   margin-right: 10px;
   vertical-align: .06em;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--warm);
 }
 
 section h3 {
@@ -322,15 +329,15 @@ p {
 }
 
 a {
-  color: var(--blue);
+  color: var(--dark-sea);
   text-decoration: none;
-  border-bottom: 1px solid rgba(0,122,255,.25);
+  border-bottom: 1px solid rgba(28,74,72,.24);
   transition: color .15s, border-color .15s;
 }
 
 a:hover {
-  color: #0051a8;
-  border-bottom-color: rgba(0,81,168,.4);
+  color: var(--wine);
+  border-bottom-color: rgba(107,26,40,.36);
 }
 
 strong {
@@ -349,18 +356,18 @@ pre {
   padding: 18px 22px;
   overflow-x: auto;
   color: var(--ink-2);
-  background: var(--page);
+  background: rgba(240,235,227,.70);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--blue);
+  border-left: 3px solid var(--warm);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
 }
 
 code {
   padding: 2px 7px;
-  background: var(--blue-pale);
+  background: var(--warm-pale);
   border-radius: 6px;
-  color: var(--blue);
+  color: var(--dark-sea);
 }
 
 /* ── Blockquotes ──────────────────────────────── */
@@ -368,9 +375,9 @@ blockquote {
   margin: 12px 0 26px;
   padding: 14px 20px 14px 22px;
   color: var(--muted);
-  background: var(--page);
+  background: rgba(240,235,227,.60);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--blue-light);
+  border-left: 3px solid var(--warm-light);
   border-radius: var(--radius-sm);
   font-size: .88rem;
   font-style: normal;
@@ -400,8 +407,8 @@ section > ul > li::before {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--blue);
-  opacity: .75;
+  background: var(--warm);
+  opacity: .80;
 }
 
 section > ul > li > ol,
@@ -413,7 +420,7 @@ section > ol {
 section > ul > li > ol > li { padding-left: 0; }
 section > ul > li > ol > li::before { content: none; }
 
-/* ── Publications ordered list ────────────────── */
+/* ── Publications numbered list ───────────────── */
 section > ol {
   padding-left: 0;
   list-style: none;
@@ -438,8 +445,8 @@ section > ol > li::before {
   text-align: center;
   font-size: .76rem;
   font-weight: 700;
-  color: var(--blue);
-  background: var(--blue-pale);
+  color: var(--warm);
+  background: var(--warm-pale);
   border-radius: 8px;
 }
 
@@ -471,18 +478,16 @@ footer { display: none; }
   padding: 0;
 }
 
-/* Vertical track line */
 .timeline::before {
   content: "";
   position: absolute;
-  /* year col 80px + gap 20px + half-dot 8px = 108px */
   left: 108px;
   top: 8px;
   bottom: 8px;
   width: 1.5px;
   background: linear-gradient(180deg,
-    var(--blue) 0%,
-    rgba(0,122,255,.12) 100%);
+    var(--warm) 0%,
+    rgba(181,121,90,.10) 100%);
   border-radius: 2px;
 }
 
@@ -504,11 +509,10 @@ footer { display: none; }
 .timeline-item:last-child,
 .awards-timeline .timeline-item:last-child { margin-bottom: 0; }
 
-/* Year label */
 .timeline-year {
   padding-top: 2px;
   text-align: right;
-  color: var(--muted);
+  color: var(--foghorn);
   font-size: .75rem;
   font-weight: 600;
   letter-spacing: .02em;
@@ -516,19 +520,17 @@ footer { display: none; }
   line-height: 1.6;
 }
 
-/* Dot */
 .timeline-dot {
   width: 12px;
   height: 12px;
   margin-top: 4px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--warm);
   border: 2px solid var(--white);
-  box-shadow: 0 0 0 2px var(--blue);
+  box-shadow: 0 0 0 2px var(--warm);
   justify-self: center;
 }
 
-/* Card */
 .timeline-card { padding-bottom: 2px; }
 
 .timeline-title {
@@ -555,54 +557,76 @@ footer { display: none; }
 }
 
 /* ════════════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — Tablet  ≤ 860px
    ════════════════════════════════════════════════ */
-@media (max-width: 900px) {
+@media (max-width: 860px) {
   .wrapper {
-    width: calc(100% - 24px) !important;
-    max-width: 780px !important;
-    padding: 16px 0 !important;
-    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 16px 16px 32px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   header {
     position: relative !important;
     top: auto;
     min-height: 0;
-    margin-bottom: 18px;
-    padding: 24px !important;
+    border-radius: var(--radius);
+    padding: 28px 28px 24px !important;
+    /* compact horizontal layout: photo | name+bio */
     display: grid;
-    grid-template-columns: 80px minmax(0, 1fr);
-    gap: 10px 18px;
+    grid-template-columns: 90px 1fr;
+    column-gap: 20px;
+    row-gap: 0;
     align-items: center;
   }
 
+  /* Photo spans 2 rows (name + bio) */
   header img {
-    width: 80px !important;
-    height: 80px !important;
-    margin: 0;
-    grid-row: span 2;
+    width: 90px !important;
+    height: 90px !important;
+    margin: 0 !important;
+    grid-row: 1 / 3;
+    grid-column: 1;
   }
 
-  header h1, header p { text-align: left; }
+  header h1 {
+    font-size: 1.08rem !important;
+    text-align: left;
+    margin: 0 !important;
+    grid-column: 2;
+    grid-row: 1;
+  }
 
+  header p {
+    text-align: left;
+    margin: 4px 0 0 !important;
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* Nav spans full width below photo+text */
   header ul {
     grid-column: 1 / -1;
-    margin-top: 12px;
-    padding-top: 14px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 16px;
+    padding-top: 16px;
+    gap: 8px;
   }
 
   section {
     max-width: none;
-    padding: 0 !important;
+    gap: 14px;
   }
 
   .panel {
-    padding: 28px 24px;
+    padding: 28px 26px;
   }
 
   section h1 { font-size: 2.1rem; }
-  section h2 { margin-top: 0; }
+  section h2 { margin-top: 36px; }
 
   .timeline::before { display: none; }
 
@@ -612,4 +636,75 @@ footer { display: none; }
     column-gap: 14px;
     margin-bottom: 18px;
   }
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Phone  ≤ 540px
+   ════════════════════════════════════════════════ */
+@media (max-width: 540px) {
+  body { font-size: 15px; }
+
+  .wrapper {
+    padding: 12px 12px 28px !important;
+    gap: 12px;
+  }
+
+  /* Stack everything vertically on phones */
+  header {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 28px 20px 22px !important;
+  }
+
+  header img {
+    width: 84px !important;
+    height: 84px !important;
+    margin: 0 auto 14px !important;
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  header h1 {
+    text-align: center;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  header p {
+    text-align: center;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  header ul {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 14px;
+    padding-top: 14px;
+  }
+
+  .panel {
+    padding: 22px 18px;
+    border-radius: 14px;
+  }
+
+  section h1 { font-size: 1.75rem; }
+  section h1::after { margin-top: 14px; }
+  section h2 { font-size: 1.12rem; margin-top: 28px; }
+
+  /* Minimal timeline on phone */
+  .timeline-item,
+  .awards-timeline .timeline-item {
+    grid-template-columns: 44px 12px 1fr;
+    column-gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .timeline-year { font-size: .68rem; }
+  .timeline-dot  { width: 10px; height: 10px; }
+  .timeline-title { font-size: .88rem; }
+  .timeline-meta  { font-size: .80rem; }
+  .timeline-note  { font-size: .75rem; }
+
+  /* Wrap long publication lines */
+  section > ol > li { padding-left: 2em; }
 }
