@@ -56,24 +56,26 @@
 
 /* ── Reset ────────────────────────────────────── */
 * { box-sizing: border-box; }
-html { min-height: 100%; }
 
 /* ════════════════════════════════════════════════
    ANIMATED BACKGROUND — macOS Sequoia dynamic style
-
-   Three composited layers:
-     body            — deep cobalt-to-teal solid fallback
-     body::before    — bg.svg scene, slow parallax drift
-     body::after     — warm sun-bloom from below, breathing
    ════════════════════════════════════════════════ */
 
-/* Solid deep-blue fallback (also shows during first paint) */
+/* Fallback on <html> — body::before/-after live in the ROOT
+   stacking context (body has no position/overflow) so they
+   render ABOVE html's background but BELOW page content.    */
+html {
+  min-height: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(155deg, #0E2A28 0%, #1C4A48 45%, #0A1C38 100%);
+}
+
 body {
   min-height: 100vh;
   margin: 0;
-  position: relative;
-  overflow-x: hidden;
-  background: linear-gradient(155deg, #0E2A28 0%, #1C4A48 45%, #0A1C38 100%);
+  background: transparent; /* NO position or overflow-x — either
+                               creates a stacking context that hides
+                               the animated pseudo-elements           */
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI',
                system-ui, sans-serif;
@@ -91,12 +93,11 @@ body::after {
   pointer-events: none;
 }
 
-/* ── Layer 1: Sequoia rays scene (bg.svg), slow drift ── */
+/* ── Layer 1: bg.svg scene, slow drift ─────────
+   z-index:-1 in ROOT stacking context → above html
+   background, below all page content.             */
 body::before {
-  z-index: 0;   /* positive — body has position:relative which creates a
-                   stacking context; negative z-index would hide behind
-                   body's own background, making bg.svg invisible */
-  /* Oversized so translate never reveals an edge */
+  z-index: -1;
   inset: -8vh -8vw;
   background:
     url('/assets/images/bg.svg') center 62% / cover no-repeat;
@@ -107,7 +108,7 @@ body::before {
 
 /* ── Layer 2: Warm sun-bloom, breathes from below ────── */
 body::after {
-  z-index: 1;
+  z-index: 0;
   background:
     /* Central bright bloom — the sun focal point */
     radial-gradient(ellipse 52% 60% at 50% 112%,
