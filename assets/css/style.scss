@@ -67,7 +67,8 @@
 html {
   min-height: 100%;
   overflow-x: hidden;
-  background: linear-gradient(155deg, #0E2A28 0%, #1C4A48 45%, #0A1C38 100%);
+  /* Canvas-matched navy→teal substrate */
+  background: radial-gradient(ellipse 90% 85% at 50% 48%, #1C4A48 0%, #102E2C 45%, #060E1E 100%);
 }
 
 body {
@@ -110,20 +111,24 @@ body::before {
 body::after {
   z-index: 0;
   background:
-    /* Central bright bloom — the sun focal point */
-    radial-gradient(ellipse 52% 60% at 50% 112%,
-      rgba(255, 218, 120, 0.36) 0%,
-      rgba(255, 150,  55, 0.20) 38%,
-      transparent               68%),
-    /* Wider diffuse halo */
-    radial-gradient(ellipse 90% 55% at 50% 118%,
-      rgba(255, 170,  70, 0.14) 0%,
-      transparent               60%),
-    /* Subtle cool-sky top tint */
+    /* Central bright bloom — gold focal point matching canvas */
+    radial-gradient(ellipse 55% 62% at 50% 114%,
+      rgba(255, 240, 160, 0.40) 0%,
+      rgba(255, 168,  56, 0.24) 34%,
+      rgba(181, 121,  90, 0.10) 58%,
+      transparent               72%),
+    /* Wider camel-amber halo */
+    radial-gradient(ellipse 95% 58% at 50% 120%,
+      rgba(181, 121,  90, 0.16) 0%,
+      transparent               62%),
+    /* Dark sea midground tint (matches density field in canvas) */
+    radial-gradient(ellipse 62% 55% at 50% 58%,
+      rgba(28,  74,  72, 0.14) 0%,
+      transparent               70%),
+    /* Wine undertone at very bottom */
     linear-gradient(180deg,
-      rgba(100, 160, 255, 0.07) 0%,
-      transparent               40%,
-      rgba(107,  26,  40, 0.12) 100%);
+      transparent               60%,
+      rgba(107,  26,  40, 0.18) 100%);
   mix-blend-mode: screen;
   animation: sq-bloom 20s ease-in-out infinite alternate;
   will-change: transform, opacity;
