@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
@@ -13,35 +12,36 @@
     {% include head-custom.html %}
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
-        {% if site.logo %}
-          <img src="{{ site.logo | relative_url }}" alt="Logo" />
-        {% endif %}
+    <nav class="topnav" role="navigation" aria-label="Main navigation">
+      <div class="topnav-inner">
+        <a class="topnav-brand" href="{{ "/" | absolute_url }}">
+          Feng BAO <span class="topnav-cn">鲍峰</span>
+        </a>
+        <div class="topnav-links">
+          <a href="https://baolab-fudan.github.io/index.html" target="_blank" rel="noopener">Bao Lab ↗</a>
+          <a href="https://scholar.google.com/citations?user=I0mcA3MAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+          <a href="mailto:fbao@fudan.edu.cn">Contact</a>
+        </div>
+        <button class="topnav-menu" aria-label="Toggle menu" onclick="this.closest('nav').classList.toggle('open')">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="topnav-drawer">
+        <a href="https://baolab-fudan.github.io/index.html" target="_blank" rel="noopener">Bao Lab ↗</a>
+        <a href="https://scholar.google.com/citations?user=I0mcA3MAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="mailto:fbao@fudan.edu.cn">Contact</a>
+      </div>
+    </nav>
 
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
-
-        <p class="view"><a href="https://baolab-fudan.github.io/index.html">Bao Lab</a></p>
-
-        {% if site.show_downloads %}
-        <ul class="downloads">
-          <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
-          <li><a href="{{ site.github.tar_url }}">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
-        </ul>
-        {% endif %}
-      </header>
-      <section>
-
+    <div class="page-wrap">
       {{ content }}
-
-      </section>
-      <footer>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
     </div>
+
+    <footer class="page-footer">
+      <p>Hosted on GitHub Pages</p>
+    </footer>
+
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
   </body>
 </html>
