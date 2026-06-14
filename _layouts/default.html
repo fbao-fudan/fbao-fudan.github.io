@@ -12,6 +12,7 @@
     {% include head-custom.html %}
   </head>
   <body>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
     <nav class="topnav" role="navigation" aria-label="Main navigation">
       <div class="topnav-inner">
@@ -43,5 +44,6 @@
     </footer>
 
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/bg-aura.js" | relative_url }}" defer></script>
   </body>
 </html>
