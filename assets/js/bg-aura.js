@@ -1,193 +1,102 @@
 /* ──────────────────────────────────────────────────────────────
-   bg-aura.js  —  Molecular / neural-network graph animation
-   Nodes drift on smooth sinusoidal paths.
-   Hub nodes glow. Mouse highlights nearby connections.
-   Palette: #2b8dd6 · #8d9ca0 · #c9b07a
+   bg-aura.js  —  Ambient colour field
+   Five large gradient blobs drawn in screen blend mode on a
+   near-black base.  They drift very slowly on independent
+   sinusoidal paths and breathe in opacity, creating a living,
+   aurora-like atmosphere.  No distracting shapes or particles.
    ────────────────────────────────────────────────────────────── */
 (function () {
   'use strict';
 
-  /* ─── Canvas ─────────────────────────────────────── */
   var canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
   var W = 0, H = 0;
 
-  /* ─── Input ──────────────────────────────────────── */
-  var ptr = { x: -999, y: -999 };   // screen px; -999 = off-screen
-  var scrollY = 0;
-
-  window.addEventListener('mousemove', function (e) {
-    ptr.x = e.clientX; ptr.y = e.clientY;
-  }, { passive: true });
-  window.addEventListener('mouseleave', function () {
-    ptr.x = -999; ptr.y = -999;
-  }, { passive: true });
-  window.addEventListener('touchmove', function (e) {
-    if (e.touches.length) {
-      ptr.x = e.touches[0].clientX;
-      ptr.y = e.touches[0].clientY;
-    }
-  }, { passive: true });
+  /* ─── Scroll ──────────────────────────────────────── */
+  var scrollRatio = 0;
   window.addEventListener('scroll', function () {
-    scrollY = window.scrollY;
+    scrollRatio = window.scrollY /
+      Math.max(document.body.scrollHeight - window.innerHeight, 1);
   }, { passive: true });
 
-  /* ─── Node parameters ────────────────────────────── */
-  var TOTAL_NODES  = 54;
-  var HUB_COUNT    = 7;
-  var CONNECT_DIST = 148;   // px
-  var MOUSE_DIST   = 170;   // px — mouse highlight radius
+  /* ─── Blob definitions ────────────────────────────────
+     Colours are calibrated for canvas screen-blend on #060a14.
+     r  = radius as fraction of min(W,H) — kept large so edges
+          never become visible inside the viewport.
+     spd = very slow angular speed (rad/ms)
+     ax/ay = oscillation amplitude (normalised)
+     px/py = phase offsets so blobs never sync
+     a   = peak opacity in screen mode
+  ──────────────────────────────────────────────────── */
+  var blobs = [
+    /* Large steel-blue — brand anchor, drifts top-left → centre */
+    { bx:.14, by:.22, r:.80, col:[22, 108, 215], a:.50, spd:1.7e-5, ax:.22, ay:.15, px:0.00, py:0.90, cx:0, cy:0 },
+    /* Large teal — top-right; where it overlaps blue it goes cyan */
+    { bx:.84, by:.16, r:.76, col:[0,  152, 188], a:.42, spd:1.3e-5, ax:.18, ay:.17, px:1.80, py:2.20, cx:0, cy:0 },
+    /* Indigo/violet — lower-left; adds depth, mixes purple with blue */
+    { bx:.22, by:.68, r:.65, col:[72,  46, 218], a:.28, spd:2.3e-5, ax:.20, ay:.24, px:3.20, py:1.10, cx:0, cy:0 },
+    /* Deep blue — lower-right */
+    { bx:.80, by:.80, r:.62, col:[12,  80, 172], a:.38, spd:1.6e-5, ax:.24, ay:.18, px:2.60, py:3.80, cx:0, cy:0 },
+    /* Bright cyan accent — small, faster, centre; lifts midground */
+    { bx:.52, by:.38, r:.46, col:[0,  178, 218], a:.22, spd:2.9e-5, ax:.28, ay:.26, px:5.10, py:0.60, cx:0, cy:0 },
+  ];
+  blobs.forEach(function (b) { b.cx = b.bx; b.cy = b.by; });
 
-  /* Colours */
-  var C_BLUE  = [43, 141, 214];
-  var C_SLATE = [141, 156, 160];
-  var C_SAND  = [201, 176, 122];
-
-  var nodes = [];
-
-  function initNodes() {
-    nodes = [];
-    for (var i = 0; i < TOTAL_NODES; i++) {
-      var isHub = i < HUB_COUNT;
-      /* Hubs spread evenly; regulars random */
-      var bx = isHub
-        ? 0.08 + (i / HUB_COUNT) * 0.86
-        : Math.random();
-      var by = isHub
-        ? 0.15 + Math.random() * 0.70
-        : Math.random();
-
-      /* Mix of blue and slate for regulars */
-      var col = isHub
-        ? C_BLUE
-        : (Math.random() < 0.55 ? C_SLATE : C_BLUE);
-
-      nodes.push({
-        bx:   bx,
-        by:   by,
-        ax:   isHub ? 0.06 + Math.random() * 0.06 : 0.04 + Math.random() * 0.10,
-        ay:   isHub ? 0.04 + Math.random() * 0.06 : 0.03 + Math.random() * 0.10,
-        spd:  isHub ? 5e-5 + Math.random() * 4e-5 : 4e-5 + Math.random() * 9e-5,
-        px:   Math.random() * Math.PI * 2,
-        py:   Math.random() * Math.PI * 2,
-        r:    isHub ? 3.5 + Math.random() * 2.5  : 1.0 + Math.random() * 1.6,
-        isHub: isHub,
-        col:  col,
-        a:    isHub ? 0.90 : 0.22 + Math.random() * 0.38,
-        /* smoothed screen positions */
-        sx: 0, sy: 0,
-      });
-    }
-    /* Seed initial smoothed positions */
-    nodes.forEach(function (n, i) {
-      n.sx = n.bx * W;
-      n.sy = n.by * H;
-    });
-  }
+  function lerp(a, b, t) { return a + (b - a) * t; }
 
   /* ─── Resize ─────────────────────────────────────── */
   function resize() {
     W = canvas.width  = window.innerWidth;
     H = canvas.height = window.innerHeight;
-    initNodes();
   }
-  window.addEventListener('resize', resize, { passive: true });
   resize();
-
-  /* ─── Lerp / clamp ───────────────────────────────── */
-  function lerp(a, b, t) { return a + (b - a) * t; }
-  function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+  window.addEventListener('resize', resize, { passive: true });
 
   /* ─── Draw loop ──────────────────────────────────── */
   function draw(now) {
-    ctx.clearRect(0, 0, W, H);
+    var minDim = Math.min(W, H);
 
-    /* 0. Very subtle large background glow for depth */
-    var gx = W * 0.25, gy = H * 0.22, gr = Math.min(W, H) * 0.55;
-    var bg = ctx.createRadialGradient(gx, gy, 0, gx, gy, gr);
-    bg.addColorStop(0,   'rgba(9,60,120,0.18)');
-    bg.addColorStop(0.5, 'rgba(9,60,120,0.07)');
-    bg.addColorStop(1,   'rgba(9,60,120,0)');
-    ctx.fillStyle = bg;
+    /* 1. Near-black base — drawn with source-over */
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = '#060a14';
     ctx.fillRect(0, 0, W, H);
 
-    /* 1. Update node positions */
-    var scrollFrac = scrollY / Math.max(document.body.scrollHeight - H, 1);
-    for (var i = 0; i < nodes.length; i++) {
-      var n = nodes[i];
-      var tx = (n.bx + Math.sin(now * n.spd         + n.px) * n.ax) * W;
-      var ty = (n.by + Math.cos(now * n.spd * 0.71  + n.py) * n.ay) * H
-               - scrollFrac * n.by * 28;    /* subtle parallax */
-      n.sx = lerp(n.sx, tx, 0.018);
-      n.sy = lerp(n.sy, ty, 0.016);
+    /* 2. Blobs in screen mode (additive light mixing) */
+    ctx.globalCompositeOperation = 'screen';
+
+    for (var i = 0; i < blobs.length; i++) {
+      var b = blobs[i];
+
+      /* Sinusoidal drift + very subtle scroll parallax */
+      var tx = b.bx + Math.sin(now * b.spd         + b.px) * b.ax;
+      var ty = b.by + Math.cos(now * b.spd * 0.69  + b.py) * b.ay
+               - scrollRatio * 0.022;
+
+      /* Exponential smooth — feels heavy and slow */
+      b.cx = lerp(b.cx, tx, 0.010);
+      b.cy = lerp(b.cy, ty, 0.009);
+
+      /* Slow opacity breathing — independent per blob */
+      var breathe = 0.80 + Math.sin(now * 0.00011 + b.px * 1.7) * 0.24;
+      var alpha   = b.a * breathe;
+
+      var x = b.cx * W,  y = b.cy * H,  r = b.r * minDim;
+      var R = b.col[0],  G = b.col[1],  B = b.col[2];
+
+      /* Multi-stop radial gradient: hot core → soft falloff */
+      var g = ctx.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0,    'rgba('+R+','+G+','+B+','+ alpha.toFixed(3)        +')');
+      g.addColorStop(0.30, 'rgba('+R+','+G+','+B+','+(alpha * 0.68).toFixed(3)+')');
+      g.addColorStop(0.60, 'rgba('+R+','+G+','+B+','+(alpha * 0.28).toFixed(3)+')');
+      g.addColorStop(1,    'rgba('+R+','+G+','+B+',0)');
+
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, W, H);
     }
 
-    /* 2. Draw edges ─────────────────────────────────── */
-    for (var i = 0; i < nodes.length - 1; i++) {
-      var a = nodes[i];
-      for (var j = i + 1; j < nodes.length; j++) {
-        var b = nodes[j];
-        var dx = a.sx - b.sx;
-        var dy = a.sy - b.sy;
-        var d2 = dx * dx + dy * dy;
-        if (d2 > CONNECT_DIST * CONNECT_DIST) continue;
-        var d = Math.sqrt(d2);
-        var baseAlpha = (1 - d / CONNECT_DIST);
-
-        /* Mouse proximity boost */
-        var mda = Math.sqrt((a.sx-ptr.x)*(a.sx-ptr.x)+(a.sy-ptr.y)*(a.sy-ptr.y));
-        var mdb = Math.sqrt((b.sx-ptr.x)*(b.sx-ptr.x)+(b.sy-ptr.y)*(b.sy-ptr.y));
-        var nearMouse = (mda < MOUSE_DIST || mdb < MOUSE_DIST);
-        var boost = nearMouse
-          ? Math.pow(1 - Math.min(mda, mdb) / MOUSE_DIST, 1.6) * 1.8
-          : 0;
-
-        var edgeAlpha = clamp(baseAlpha * (0.20 + boost * 0.55), 0, 0.75);
-        var isHubEdge = a.isHub || b.isHub;
-
-        /* Hub edges: brighter blue; regular: slate */
-        var R = isHubEdge ? C_BLUE[0] : C_SLATE[0];
-        var G = isHubEdge ? C_BLUE[1] : C_SLATE[1];
-        var B = isHubEdge ? C_BLUE[2] : C_SLATE[2];
-
-        ctx.strokeStyle = 'rgba(' + R + ',' + G + ',' + B + ',' + edgeAlpha.toFixed(3) + ')';
-        ctx.lineWidth   = isHubEdge ? 0.9 : 0.55;
-        ctx.beginPath();
-        ctx.moveTo(a.sx, a.sy);
-        ctx.lineTo(b.sx, b.sy);
-        ctx.stroke();
-      }
-    }
-
-    /* 3. Draw nodes ──────────────────────────────────── */
-    for (var i = 0; i < nodes.length; i++) {
-      var n = nodes[i];
-      var md = Math.sqrt((n.sx-ptr.x)*(n.sx-ptr.x)+(n.sy-ptr.y)*(n.sy-ptr.y));
-      var mouseBoost = md < MOUSE_DIST
-        ? Math.pow(1 - md / MOUSE_DIST, 1.8) * 0.7
-        : 0;
-      var finalAlpha = clamp(n.a + mouseBoost, 0, 1);
-
-      var R = n.col[0], G = n.col[1], B = n.col[2];
-
-      if (n.isHub) {
-        /* Glow ring behind hub */
-        var glowR = n.r * (5 + mouseBoost * 4);
-        var grd = ctx.createRadialGradient(n.sx, n.sy, 0, n.sx, n.sy, glowR);
-        grd.addColorStop(0,   'rgba(' + R + ',' + G + ',' + B + ',' + (finalAlpha * 0.30).toFixed(3) + ')');
-        grd.addColorStop(0.5, 'rgba(' + R + ',' + G + ',' + B + ',' + (finalAlpha * 0.08).toFixed(3) + ')');
-        grd.addColorStop(1,   'rgba(' + R + ',' + G + ',' + B + ',0)');
-        ctx.fillStyle = grd;
-        ctx.fillRect(n.sx - glowR, n.sy - glowR, glowR * 2, glowR * 2);
-      }
-
-      /* Core dot */
-      ctx.fillStyle = 'rgba(' + R + ',' + G + ',' + B + ',' + finalAlpha.toFixed(3) + ')';
-      ctx.beginPath();
-      ctx.arc(n.sx, n.sy, n.r + mouseBoost * 1.2, 0, Math.PI * 2);
-      ctx.fill();
-    }
+    /* 3. Restore normal compositing */
+    ctx.globalCompositeOperation = 'source-over';
 
     requestAnimationFrame(draw);
   }
